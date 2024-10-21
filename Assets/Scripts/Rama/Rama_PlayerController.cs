@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 public class Rama_PlayerController : MonoBehaviour
 {
     private CharacterController _player;
-
     [SerializeField] private float _moveSpeed, _gravity, _fallVelocity, _JumpForce;
-
     private Vector3 _axis, _movePlayer;
+
+    //RAYCAST
+    [SerializeField] private Transform raycastOrigin; //Raycast
+    [SerializeField] private float checkDistance; //chequeo de distancia
+    [SerializeField] private LayerMask CuadroLayer; //capa que vamos a chequear
 
     private void Awake()
     {
@@ -30,6 +33,27 @@ public class Rama_PlayerController : MonoBehaviour
         setGravity();
 
         _player.Move(_movePlayer * _moveSpeed * Time.deltaTime);
+
+
+        //RAYCAST hacia adelante
+        RaycastHit hit;
+        if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, checkDistance, CuadroLayer))
+        {
+            // Si el raycast detecta un objeto en la capa CuadroLayer
+            Rigidbody cuadroRb = hit.collider.GetComponent<Rigidbody>();
+            if (cuadroRb != null)
+            {
+                cuadroRb.isKinematic = false; // Deshabilitar isKinematic para que se aplique la física
+                cuadroRb.AddForce(Vector3.down * 5f, ForceMode.Impulse); // Aplicar fuerza hacia abajo
+            }
+        }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.forward * checkDistance);
     }
 
     private void setGravity()
@@ -49,4 +73,6 @@ public class Rama_PlayerController : MonoBehaviour
         }
         _movePlayer.y = _fallVelocity; //agrego gravedad al eje Y
     }
+
+    
 }
