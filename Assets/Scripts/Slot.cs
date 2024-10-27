@@ -40,7 +40,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)  
         {
-            pickObject.EquipItem(item);  // Coloca el item en el handPoint
+            pickObject.EquipItem(item); 
             inventory.CloseInventory();
         }
     }

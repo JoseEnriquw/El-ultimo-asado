@@ -85,11 +85,11 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(GameObject itemobjet, ItemInventory iteminventory)
     {
-        for(int i = 0;i < allSlots; i++) {
+        if (iteminventory.equipped) return;
+        for (int i = 0;i < allSlots; i++) {
             if (slot[i].GetComponent<Slot>().empty)
             {
                 itemobjet.GetComponent<ItemInventory>().PickedUp = true;
-
                 slot[i].GetComponent<Slot>().item = itemobjet;
                 slot[i].GetComponent<Slot>().Id=iteminventory.Id;
                 slot[i].GetComponent<Slot>().Type = iteminventory.Type;
@@ -100,7 +100,6 @@ public class Inventory : MonoBehaviour
                 itemobjet.SetActive(false);
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
-
 
                 slot[i].GetComponent<Slot>().empty=false;
 

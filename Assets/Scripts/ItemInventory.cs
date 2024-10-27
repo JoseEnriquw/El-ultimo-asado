@@ -44,7 +44,7 @@ public class ItemInventory : MonoBehaviour
 
     public void ItemUsage()
     {
-        // Asignar "usable" dinámicamente solo cuando se usa el ítem
+        
         if (usable == null && playerusable)
         {
             int allUsables = usableManager.transform.childCount;
@@ -55,12 +55,11 @@ public class ItemInventory : MonoBehaviour
                 if (child.GetComponent<ItemInventory>() != null && child.GetComponent<ItemInventory>().Id == Id)
                 {
                     usable = child;
-                    break; // Detener el bucle si encontramos el objeto
+                    break; 
                 }
             }
         }
-
-        // Activar el objeto si es de tipo "usable" y se ha asignado "usable" correctamente
+       
         if (Type == "usable" && usable != null)
         {
             usable.SetActive(true);

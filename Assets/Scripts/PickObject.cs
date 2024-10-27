@@ -8,7 +8,7 @@ public class PickObject : MonoBehaviour
     [SerializeField] private GameObject hanPoint;
     private GameObject pickedObject = null;
     Inventory _inventory;
-
+    private bool isEquippedFromInventory = false;
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
@@ -18,7 +18,7 @@ public class PickObject : MonoBehaviour
     {
         if(pickedObject != null)
         {
-            if(Input.GetKey(KeyCode.R))
+            if(Input.GetKey(KeyCode.R) && pickedObject.CompareTag("ObjetoPickeable"))
             {
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -26,7 +26,7 @@ public class PickObject : MonoBehaviour
                 pickedObject.transform.SetParent(null);
                 pickedObject = null;
             }
-            if (Input.GetKeyDown(KeyCode.E))  // Desequipar con "E"
+            if (Input.GetKeyDown(KeyCode.E) && pickedObject.CompareTag("ItemInventory"))
             {
                 UnequipItem();
             }
@@ -68,6 +68,12 @@ public class PickObject : MonoBehaviour
     {
         if (item == null) return;
 
+        var itemInventory = item.GetComponent<ItemInventory>();
+        if (itemInventory != null)
+        {
+            itemInventory.equipped = true;
+        }
+
         pickedObject = item;
         pickedObject.transform.position = hanPoint.transform.position;
         pickedObject.transform.SetParent(hanPoint.transform);
@@ -79,10 +85,19 @@ public class PickObject : MonoBehaviour
     public void UnequipItem()
     {
         if (pickedObject == null) return;
+        var itemInventory = pickedObject.GetComponent<ItemInventory>();
+        if (itemInventory != null)
+        {
+            itemInventory.equipped = false;
+        }
 
-        pickedObject.GetComponent<Rigidbody>().useGravity = true;
-        pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-        pickedObject.transform.SetParent(null);
+        pickedObject.SetActive(false);            // Desactiva el objeto en lugar de soltarlo
+        pickedObject.transform.SetParent(null);   // Quita la relación con handPoint
         pickedObject = null;
+
+        //pickedObject.GetComponent<Rigidbody>().useGravity = true;
+        //pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+        //pickedObject.transform.SetParent(null);
+        //pickedObject = null;
     }
 }
