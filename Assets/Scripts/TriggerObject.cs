@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerObject : MonoBehaviour
 {
-    public GameObject _object;
+    [SerializeField] private GameObject _object;
 
     private void OnCollisionEnter(Collision collision)
     {

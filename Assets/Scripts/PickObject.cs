@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
-    public GameObject hanPoint;
+    [SerializeField] private GameObject hanPoint;
     private GameObject pickedObject = null;
     
     void Update()
