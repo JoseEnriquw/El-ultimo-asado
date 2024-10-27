@@ -27,10 +27,18 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.I)) {
+        //if(Input.GetKeyUp(KeyCode.I)) {
+        //    inventoryEnabled = !inventoryEnabled;
+        //    UpdateCursorState();
+        //}
+        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
             inventoryEnabled = !inventoryEnabled;
+            //inventory.SetActive(inventoryEnabled);
+            UpdateCursorState();
         }
-        if(inventoryEnabled)
+        if (inventoryEnabled)
         {
             inventory.SetActive(true);
         }
@@ -40,22 +48,42 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void UpdateCursorState()
     {
-        if (other.gameObject.CompareTag("ItemInventory"))
+        if (inventoryEnabled)
         {
-            if (Input.GetKey(KeyCode.E))
-            {
-                GameObject Itempickedup = other.gameObject;
-
-                ItemInventory item= Itempickedup.GetComponent<ItemInventory>();
-
-                AddItem(Itempickedup, item);
-            }
+            Cursor.lockState = CursorLockMode.None;  // Desbloquea el cursor
+            Cursor.visible = true;                   // Muestra el cursor
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;  // Bloquea el cursor
+            Cursor.visible = false;                    // Oculta el cursor
         }
     }
+    public void CloseInventory()
+    {
+        inventoryEnabled = false;
+        inventory.SetActive(false);
+        UpdateCursorState();
+    }
+    //ENTRA EN CONFLICTO CON EL DE PCKEDOBJECT
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("ItemInventory"))
+    //    {
+    //        if (Input.GetKey(KeyCode.E))
+    //        {
+    //            GameObject Itempickedup = other.gameObject;
 
-    private void AddItem(GameObject itemobjet, ItemInventory iteminventory)
+    //            ItemInventory item= Itempickedup.GetComponent<ItemInventory>();
+
+    //            AddItem(Itempickedup, item);
+    //        }
+    //    }
+    //}
+
+    public void AddItem(GameObject itemobjet, ItemInventory iteminventory)
     {
         for(int i = 0;i < allSlots; i++) {
             if (slot[i].GetComponent<Slot>().empty)
@@ -71,9 +99,14 @@ public class Inventory : MonoBehaviour
                 itemobjet.transform.parent = slot[i].transform;
                 itemobjet.SetActive(false);
 
+                slot[i].GetComponent<Slot>().UpdateSlot();
+
+
                 slot[i].GetComponent<Slot>().empty=false;
 
+                return;
             }
+            
         }
 
     }
