@@ -6,7 +6,7 @@ public class Push : MonoBehaviour
 {
     public float pushPower = 2.0f; //fuerza de empuje
 
-    private float targetMass; //masa del objeto contra el que chocamos
+    private float targetMass; //masa del objeto contra el que chocamos (pesado o liviano)
 
     private void OnControllerColliderHit(ControllerColliderHit hit) //actua cuando colisionamos con un objeto
     {

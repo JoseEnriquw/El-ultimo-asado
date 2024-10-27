@@ -73,6 +73,5 @@ public class Rama_PlayerController : MonoBehaviour
         }
         _movePlayer.y = _fallVelocity; //agrego gravedad al eje Y
     }
-
     
 }
