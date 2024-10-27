@@ -28,10 +28,7 @@ public class PickObject : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))  // Desequipar con "E"
             {
-                pickedObject.GetComponent<Rigidbody>().useGravity = true;
-                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-                pickedObject.transform.SetParent(null);
-                pickedObject = null;
+                UnequipItem();
             }
         }
        
@@ -64,20 +61,28 @@ public class PickObject : MonoBehaviour
 
     public void SetPickedObject(GameObject item)
     {
-        if (pickedObject != null)  // Libera el objeto anterior si hay uno
-        {
-            pickedObject.GetComponent<Rigidbody>().useGravity = true;
-            pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-            pickedObject.transform.SetParent(null);
-        }
+        UnequipItem();
+        EquipItem(item);
+    }
+    public void EquipItem(GameObject item)
+    {
+        if (item == null) return;
 
-        pickedObject = item;  // Asigna el nuevo objeto seleccionado
-        if (pickedObject != null)
-        {
-            pickedObject.transform.position = hanPoint.transform.position;
-            pickedObject.transform.SetParent(hanPoint.transform);
-            pickedObject.GetComponent<Rigidbody>().useGravity = false;
-            pickedObject.GetComponent<Rigidbody>().isKinematic = true;
-        }
+        pickedObject = item;
+        pickedObject.transform.position = hanPoint.transform.position;
+        pickedObject.transform.SetParent(hanPoint.transform);
+        pickedObject.GetComponent<Rigidbody>().useGravity = false;
+        pickedObject.GetComponent<Rigidbody>().isKinematic = true;
+        pickedObject.SetActive(true);
+    }
+
+    public void UnequipItem()
+    {
+        if (pickedObject == null) return;
+
+        pickedObject.GetComponent<Rigidbody>().useGravity = true;
+        pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+        pickedObject.transform.SetParent(null);
+        pickedObject = null;
     }
 }

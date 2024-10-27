@@ -40,9 +40,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)  
         {
-            Debug.Log("Clic izquierdo detectado en el slot");
-            UseItem();
-            pickObject.SetPickedObject(item);
+            pickObject.EquipItem(item);  // Coloca el item en el handPoint
             inventory.CloseInventory();
         }
     }
