@@ -8,21 +8,23 @@ public class PickObject : MonoBehaviour
     [SerializeField] private GameObject hanPoint;
     private GameObject pickedObject = null;
     Inventory _inventory;
-    private bool isEquippedFromInventory = false;
+    [SerializeField] private Transform raycastOrigin;
+    [SerializeField] private float checkDistance;
+    [SerializeField] private LayerMask layerMask;
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
     }
 
     void Update()
-    {
-        if(pickedObject != null)
+    {     
+
+        if (pickedObject != null)
         {
             if(Input.GetKey(KeyCode.R) && pickedObject.CompareTag("ObjetoPickeable"))
             {
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
-                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-               // pickedObject.gameObject.transform.SetParent(null);
+                pickedObject.GetComponent<Rigidbody>().isKinematic = false;              
                 pickedObject.transform.SetParent(null);
                 pickedObject = null;
             }
@@ -30,8 +32,39 @@ public class PickObject : MonoBehaviour
             {
                 UnequipItem();
             }
+
+            //if(pickedObject.CompareTag("ItemInventory"))
+                CheckRaycastHit();
         }
        
+    }
+
+    private void CheckRaycastHit()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, checkDistance, layerMask))
+        {
+            InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
+
+            if (interactable != null)
+            {
+                ItemInventory itemInventory = pickedObject.GetComponent<ItemInventory>();
+                if (itemInventory != null && itemInventory.Id == interactable.interactionID)
+                {
+                    Debug.Log("Interacción válida con " + interactable.gameObject.name);
+                    interactable.Interact();
+                }
+                else
+                {
+                    Debug.Log("El objeto equipado no puede interactuar con " + interactable.gameObject.name);
+                }
+            }
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.forward * checkDistance);
     }
     private void OnTriggerStay(Collider other)
     {

@@ -26,16 +26,11 @@ public class Inventory : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //if(Input.GetKeyUp(KeyCode.I)) {
-        //    inventoryEnabled = !inventoryEnabled;
-        //    UpdateCursorState();
-        //}
+    {      
         
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventoryEnabled = !inventoryEnabled;
-            //inventory.SetActive(inventoryEnabled);
+            inventoryEnabled = !inventoryEnabled;            
             UpdateCursorState();
         }
         if (inventoryEnabled)
@@ -52,13 +47,13 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryEnabled)
         {
-            Cursor.lockState = CursorLockMode.None;  // Desbloquea el cursor
-            Cursor.visible = true;                   // Muestra el cursor
+            Cursor.lockState = CursorLockMode.None;  
+            Cursor.visible = true;                   
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;  // Bloquea el cursor
-            Cursor.visible = false;                    // Oculta el cursor
+            Cursor.lockState = CursorLockMode.Locked; 
+            Cursor.visible = false;                    
         }
     }
     public void CloseInventory()

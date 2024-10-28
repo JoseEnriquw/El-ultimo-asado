@@ -18,20 +18,7 @@ public class ItemInventory : MonoBehaviour
     private void Start()
     {
         usableManager = GameObject.FindWithTag("Player");
-        //if (playerusable)
-        //{
-        //    int allusables= usableManager.transform.childCount;
-        //    for (int i = 0; i < allusables; i++)
-        //    {
-        //        GameObject child = usableManager.transform.GetChild(i).gameObject;
-        //        if (child.GetComponent<ItemInventory>() != null && child.GetComponent<ItemInventory>().Id == Id)
-        //        {
-        //            usable = child;
-        //            break; // Detener el bucle si encontramos el objeto
-        //        }
-
-        //    }
-        //}
+        
     }
     private void Update()
     {
