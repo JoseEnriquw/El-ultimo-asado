@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
-public class WaypointManager : MonoBehaviour
+public class CharacterWaypoint : MonoBehaviour
 {
-    [SerializeField] private List<Transform> wayPoints = new List<Transform>();
-    public bool isMoving;
-    public int wayPointIndex;
+    [SerializeField] private List<Transform> wayPoints = new();
+    private bool isMoving;
+    private int wayPointIndex;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] bool isLoop;
     [SerializeField] bool isRandom;
+
     private Vector3 previousPosition;
     Animator animator;
     
@@ -21,7 +20,6 @@ public class WaypointManager : MonoBehaviour
     {
         // inicia siempre con el primer waypoint
         wayPointIndex = 0;
-        //isMoving = true;
         animator = GetComponent<Animator>();
         previousPosition = new Vector3(transform.position.x, 0.0f, transform.position.z);
     }
@@ -31,18 +29,12 @@ public class WaypointManager : MonoBehaviour
     {
         // obtenemos el bool que decide la transicion a walking
         bool isWalking = animator.GetBool("isWalking");
-        //if (!isMoving)
-        //{
-        //    return;
-        //}
 
         // almacenamos en un float si hubo desplazamiento del character
         float movingDifference = Vector3.Distance(previousPosition, transform.position);
-        //Debug.Log(movingDifference);
-        
+
         // chequeamos si se movio mas que una cierta distancia
         isMoving = movingDifference >= 0.0005f;
-        //Debug.Log(isMoving.ToString());
         
         // animacion desactivada y se esta moviendo?
         if (!isWalking && isMoving)
