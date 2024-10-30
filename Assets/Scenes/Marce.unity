@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.000832
+      value: 3.382
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
@@ -231,7 +231,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9130659
+      value: 4.979
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
@@ -267,6 +267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7230717294218639656, guid: 4fca6d181048588438037883125e9ade,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
@@ -2039,11 +2044,9 @@ MonoBehaviour:
   - {fileID: 1812994934}
   - {fileID: 1058767517}
   - {fileID: 1700439596}
-  isMoving: 0
-  wayPointIndex: 0
-  moveSpeed: 1
+  moveSpeed: 1.5
   rotationSpeed: 5
-  isLoop: 0
+  isLoop: 1
   isRandom: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
