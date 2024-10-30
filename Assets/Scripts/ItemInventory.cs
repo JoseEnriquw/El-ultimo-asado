@@ -18,20 +18,7 @@ public class ItemInventory : MonoBehaviour
     private void Start()
     {
         usableManager = GameObject.FindWithTag("Player");
-        //if (playerusable)
-        //{
-        //    int allusables= usableManager.transform.childCount;
-        //    for (int i = 0; i < allusables; i++)
-        //    {
-        //        GameObject child = usableManager.transform.GetChild(i).gameObject;
-        //        if (child.GetComponent<ItemInventory>() != null && child.GetComponent<ItemInventory>().Id == Id)
-        //        {
-        //            usable = child;
-        //            break; // Detener el bucle si encontramos el objeto
-        //        }
-
-        //    }
-        //}
+        
     }
     private void Update()
     {
@@ -44,7 +31,7 @@ public class ItemInventory : MonoBehaviour
 
     public void ItemUsage()
     {
-        // Asignar "usable" dinámicamente solo cuando se usa el ítem
+        
         if (usable == null && playerusable)
         {
             int allUsables = usableManager.transform.childCount;
@@ -55,12 +42,11 @@ public class ItemInventory : MonoBehaviour
                 if (child.GetComponent<ItemInventory>() != null && child.GetComponent<ItemInventory>().Id == Id)
                 {
                     usable = child;
-                    break; // Detener el bucle si encontramos el objeto
+                    break; 
                 }
             }
         }
-
-        // Activar el objeto si es de tipo "usable" y se ha asignado "usable" correctamente
+       
         if (Type == "usable" && usable != null)
         {
             usable.SetActive(true);

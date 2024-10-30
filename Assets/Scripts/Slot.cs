@@ -25,7 +25,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     }
     public void UpdateSlot()
     {
-        slotIconGameObject.GetComponent<Image>().sprite = Icon;
+        slotIconGameObject.GetComponent<Image>().sprite = Icon;    
+            
+        
+    }
+
+    public void Removeicon()
+    {
+        slotIconGameObject.GetComponent<Image>().sprite = null;
     }
 
     public void UseItem()
@@ -40,7 +47,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)  
         {
-            pickObject.EquipItem(item);  // Coloca el item en el handPoint
+            pickObject.EquipItem(item); 
             inventory.CloseInventory();
         }
     }

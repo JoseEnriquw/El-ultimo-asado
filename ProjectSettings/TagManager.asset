@@ -9,6 +9,7 @@ TagManager:
   - ObjetoconChoque
   - ItemInventory
   - PlayerManager
+  - ObjetoconTexto
   layers:
   - Default
   - TransparentFX
@@ -20,6 +21,10 @@ TagManager:
   - Obstacles
   - Enemies
   - Cuadro
+  - Interactuable
+  - 
+  - 
+  - 
   - 
   - 
   - 
