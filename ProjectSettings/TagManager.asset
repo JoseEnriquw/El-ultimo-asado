@@ -9,6 +9,7 @@ TagManager:
   - ObjetoconChoque
   - ItemInventory
   - PlayerManager
+  - ObjetoconTexto
   layers:
   - Default
   - TransparentFX

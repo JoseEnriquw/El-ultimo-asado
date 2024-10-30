@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -93,10 +94,12 @@ public class Inventory : MonoBehaviour
 
                 itemobjet.transform.parent = slot[i].transform;
                 itemobjet.SetActive(false);
-
                 slot[i].GetComponent<Slot>().UpdateSlot();
 
-                slot[i].GetComponent<Slot>().empty=false;
+                slot[i].GetComponent<Slot>().empty = false;
+                
+
+               
 
                 return;
             }
@@ -104,4 +107,25 @@ public class Inventory : MonoBehaviour
         }
 
     }
+    public void RemoveItemFromInventory(ItemInventory itemInventory)
+    {
+        for (int i = 0; i < allSlots; i++)
+        {
+            //Slot slot = slot[i].GetComponent<Slot>();
+            if (!slot[i].GetComponent<Slot>().empty && slot[i].GetComponent<Slot>().Id == itemInventory.Id)
+            {
+                slot[i].GetComponent<Slot>().item = null;
+                slot[i].GetComponent<Slot>().Id = 0;
+                slot[i].GetComponent<Slot>().Type = "";
+                slot[i].GetComponent<Slot>().Description = "";
+                slot[i].GetComponent<Slot>().Icon = null;
+                slot[i].GetComponent<Slot>().empty = true;
+                
+                slot[i].GetComponent<Slot>().Removeicon();
+                break;
+            }
+        }
+    }
+    
+
 }
