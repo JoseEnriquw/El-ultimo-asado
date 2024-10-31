@@ -45,7 +45,7 @@ public class PickObject : MonoBehaviour
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, checkDistance, layerMask))
         {
             InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
-            Text textComponent = hit.collider.GetComponent<Text>();
+
             if (interactable != null)
             {
                 ItemInventory itemInventory = pickedObject.GetComponent<ItemInventory>();
@@ -53,13 +53,10 @@ public class PickObject : MonoBehaviour
                 {
                     Debug.Log("Interacción válida con " + interactable.gameObject.name);
                     interactable.Interact();
-                    textComponent.UpdateTextBasedOnInteraction(true);
-                    DestroyPickedObject();
                 }
                 else
                 {
                     Debug.Log("El objeto equipado no puede interactuar con " + interactable.gameObject.name);
-                    textComponent.UpdateTextBasedOnInteraction(false);
                 }
             }
         }
