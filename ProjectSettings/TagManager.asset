@@ -9,6 +9,7 @@ TagManager:
   - ObjetoconChoque
   - ItemInventory
   - PlayerManager
+  - ObjetoconTexto
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Interactuable
-  - 
+  - Cuadro
   - 
   - 
   - 
