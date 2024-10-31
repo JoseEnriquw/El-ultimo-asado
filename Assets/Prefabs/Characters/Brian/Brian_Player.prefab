@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
       propertyPath: m_Name
-      value: T-Pose Brian
+      value: Brian_Player
       objectReference: {fileID: 0}
     - target: {fileID: 2342956203822869081, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
@@ -224,7 +224,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f1bedd96b1a75364882de961129e291a, type: 2}
+      objectReference: {fileID: 9100000, guid: fb12699305dbf7441b94527d0301306e, type: 2}
     - target: {fileID: 5866666021909216657, guid: 4fca6d181048588438037883125e9ade,
         type: 3}
       propertyPath: m_UpdateMode
