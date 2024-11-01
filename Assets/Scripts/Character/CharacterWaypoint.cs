@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterWaypoint : MonoBehaviour
@@ -13,7 +13,7 @@ public class CharacterWaypoint : MonoBehaviour
 
     private Vector3 previousPosition;
     Animator animator;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class CharacterWaypoint : MonoBehaviour
 
         // chequeamos si se movio mas que una cierta distancia
         isMoving = movingDifference >= 0.0005f;
-        
+
         // animacion desactivada y se esta moviendo?
         if (!isWalking && isMoving)
         {
@@ -61,10 +61,10 @@ public class CharacterWaypoint : MonoBehaviour
             // calcula el el angulo de rotacion y aplica rotacion con LERP
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-            
+
             // calcula la distancia hacia siguiente waypoint
             float distance = Vector3.Distance(transform.position, wayPoints[wayPointIndex].position);
-            
+
             // llego al siguiente waypoint?
             if (distance <= 0.05f)
             {
@@ -73,7 +73,8 @@ public class CharacterWaypoint : MonoBehaviour
                 {
                     // asigna waypoint aleatorio
                     wayPointIndex = Random.Range(0, wayPoints.Count);
-                }else
+                }
+                else
                 {
                     // incrementa el contador de waypoint
                     wayPointIndex++;
@@ -85,9 +86,10 @@ public class CharacterWaypoint : MonoBehaviour
                         wayPointIndex = 0;
                     }
                 }
-                
+
             }
-            
+
         }
     }
 }
+
