@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.GameManager
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager gameManager;
+        private static GameManager gameManager;
+        public static GameManager GetGameManager() => gameManager; 
         private int scene;
 
         private void Awake()
@@ -16,6 +18,18 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
+            scene = 0;
+            DontDestroyOnLoad(this);
         }
+        public void NextScene()
+        {
+            scene++;
+            SceneManager.LoadScene(scene);
+        }
+
+        public void GoToScene(int scene)
+        {
+            SceneManager.LoadScene(scene);
+        }  
     }
 }
