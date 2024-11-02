@@ -63,21 +63,7 @@ public class Inventory : MonoBehaviour
         inventory.SetActive(false);
         UpdateCursorState();
     }
-    //ENTRA EN CONFLICTO CON EL DE PCKEDOBJECT
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("ItemInventory"))
-    //    {
-    //        if (Input.GetKey(KeyCode.E))
-    //        {
-    //            GameObject Itempickedup = other.gameObject;
-
-    //            ItemInventory item= Itempickedup.GetComponent<ItemInventory>();
-
-    //            AddItem(Itempickedup, item);
-    //        }
-    //    }
-    //}
+   
 
     public void AddItem(GameObject itemobjet, ItemInventory iteminventory)
     {
