@@ -19,13 +19,20 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        slotIconGameObject = transform.GetChild(0);       
+        slotIconGameObject = transform.GetChild(0);
         pickObject = FindObjectOfType<PickObject>();
         inventory = FindObjectOfType<Inventory>();
     }
     public void UpdateSlot()
     {
         slotIconGameObject.GetComponent<Image>().sprite = Icon;
+
+
+    }
+
+    public void Removeicon()
+    {
+        slotIconGameObject.GetComponent<Image>().sprite = null;
     }
 
     public void UseItem()
@@ -38,12 +45,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)  
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            pickObject.EquipItem(item); 
+            pickObject.EquipItem(item);
             inventory.CloseInventory();
         }
     }
 
-  
+
 }
