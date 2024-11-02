@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Enums;
+using Cinemachine;
+using UnityEngine;
 
 namespace Assets.Scripts.Character
 {
@@ -12,7 +14,7 @@ namespace Assets.Scripts.Character
 
         private CharacterController characterController;
         private Animator animator;
-        private Camera firstPersonCamera;
+        private CinemachineVirtualCamera firstPersonCamera;
 
         private Vector3 moveDirection = Vector3.zero;
         private float gravity = -9.81f;
@@ -25,7 +27,7 @@ namespace Assets.Scripts.Character
             // Obtener componentes necesarios
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
-            firstPersonCamera = GetComponentInChildren<Camera>();
+            firstPersonCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         }
 
         private void Start()
@@ -52,9 +54,9 @@ namespace Assets.Scripts.Character
 
             // Rotar la cámara en el eje X (vertical)
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, -90f, 75f);
 
-            firstPersonCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+           firstPersonCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
 
         private void HandleMovement()
@@ -105,5 +107,15 @@ namespace Assets.Scripts.Character
             // Actualizar el parámetro 'Speed' en el Animator
             animator.SetFloat("Speed", speedPercent, 0.1f, Time.deltaTime);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == Tags.CambioEscena)
+            {
+                GameManager.GameManager.GetGameManager().NextScene();
+            }
+        }
+
+
     }
 }

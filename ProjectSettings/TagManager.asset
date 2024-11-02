@@ -10,6 +10,7 @@ TagManager:
   - ItemInventory
   - PlayerManager
   - ObjetoconTexto
+  - CambioEscena
   layers:
   - Default
   - TransparentFX
@@ -23,10 +24,6 @@ TagManager:
   - Cuadro
   - Interactuable
   - Cuadro
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
