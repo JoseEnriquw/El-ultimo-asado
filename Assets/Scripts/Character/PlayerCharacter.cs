@@ -18,8 +18,7 @@ namespace Assets.Scripts.Character
 
         private Vector3 moveDirection = Vector3.zero;
         private float gravity = -9.81f;
-        private float verticalVelocity;
-
+        private float verticalVelocity;        
         private float xRotation = 0f;
 
         private void Awake()
