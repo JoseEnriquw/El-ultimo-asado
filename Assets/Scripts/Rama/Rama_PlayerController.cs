@@ -17,12 +17,12 @@ public class Rama_PlayerController : MonoBehaviour
     private void Awake()
     {
         _player = GetComponent<CharacterController>();
-        
+        //pjtransform = gameObject.GetComponents<Transform>;
     }
 
     private void Update()
     {
-        pjtransform = gameObject.transform;
+        
         transform.Rotate(0, Input.GetAxis("Mouse X"),0);
         _axis = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
         //si la velocidad de movimiento es >1
@@ -39,7 +39,7 @@ public class Rama_PlayerController : MonoBehaviour
 
         //RAYCAST hacia adelante
         RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin.position, pjtransform.forward, out hit, checkDistance, CuadroLayer))
+        if (Physics.Raycast(raycastOrigin.position, pjtransform.TransformDirection(1,0,1), out hit, checkDistance, CuadroLayer))
         {
             // Si el raycast detecta un objeto en la capa CuadroLayer
             Rigidbody cuadroRb = hit.collider.GetComponent<Rigidbody>();
