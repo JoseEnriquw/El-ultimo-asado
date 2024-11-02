@@ -18,7 +18,7 @@ public class ItemInventory : MonoBehaviour
     private void Start()
     {
         usableManager = GameObject.FindWithTag("Player");
-        
+
     }
     private void Update()
     {
@@ -31,7 +31,7 @@ public class ItemInventory : MonoBehaviour
 
     public void ItemUsage()
     {
-        
+
         if (usable == null && playerusable)
         {
             int allUsables = usableManager.transform.childCount;
@@ -42,11 +42,11 @@ public class ItemInventory : MonoBehaviour
                 if (child.GetComponent<ItemInventory>() != null && child.GetComponent<ItemInventory>().Id == Id)
                 {
                     usable = child;
-                    break; 
+                    break;
                 }
             }
         }
-       
+
         if (Type == "usable" && usable != null)
         {
             usable.SetActive(true);

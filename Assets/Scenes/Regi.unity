@@ -5500,11 +5500,11 @@ MonoBehaviour:
   Id: 2
   Type: usable
   Description: taza
-  Icon: {fileID: 21300000, guid: 40426f9447a44c342a29d0ed7202f793, type: 3}
+  Icon: {fileID: 21300000, guid: 1ab331a196bae1046b7a75ed7e3f6b46, type: 3}
   PickedUp: 0
   equipped: 0
   usableManager: {fileID: 0}
-  usable: {fileID: 0}
+  usable: {fileID: 1092649669}
   playerusable: 0
 --- !u!1001 &1837643035
 PrefabInstance:
