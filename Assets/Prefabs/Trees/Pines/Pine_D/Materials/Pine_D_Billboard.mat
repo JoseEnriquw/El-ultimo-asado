@@ -31,7 +31,7 @@ Material:
   m_ValidKeywords:
   - BACKFACE_NORMAL_MODE_MIRROR
   - EFFECT_BILLBOARD
-  - _WINDQUALITY_FASTEST
+  - _WINDQUALITY_FAST
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1

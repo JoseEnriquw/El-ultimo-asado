@@ -1,0 +1,29 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 14.11.2016 23:57:29
+
+newmtl Pagnotta
+	Ns 15.753124
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.588235 0.588235 0.588235
+	Ks 0.180000 0.180000 0.180000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka J:\E Lenovo\2937553_Brot (1)\2937553_Brot\max1\Pagnotta1DiffuseMap.jpg
+	map_Kd J:\E Lenovo\2937553_Brot (1)\2937553_Brot\max1\Pagnotta1DiffuseMap.jpg
+	map_bump Pagnotta_Flattened_Normal_Map_Normal_Bump.tga
+
+newmtl Material__7
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 1.000000 1.000000 1.000000
+	Kd 1.000000 1.000000 1.000000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
