@@ -30,7 +30,8 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - BACKFACE_NORMAL_MODE_NONE
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _WINDQUALITY_FASTEST
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -93,7 +94,7 @@ Material:
     - _BlendMode: 0
     - _CastShadows: 1
     - _ConservativeDepthOffsetEnable: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CullMode: 0
     - _CullModeForward: 0
     - _DepthOffsetEnable: 0
@@ -143,7 +144,7 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _WINDQUALITY: 4
+    - _WINDQUALITY: 1
     - _WindQuality: 1
     - _WorkflowMode: 1
     - _ZTest: 4

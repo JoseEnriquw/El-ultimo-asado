@@ -4088,6 +4088,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 390161313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &397084648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5838322814494609567, guid: 111690d73c9728741bd54e3ad6278183,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929945667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &397084656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397084648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5713ad1aad2609b4a8066e94ad0872b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _gravity: 0
+  _fallVelocity: 0
+  _JumpForce: 0
+  raycastOrigin: {fileID: 1955009033}
+  checkDistance: -0.96
+  CuadroLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  pjtransform: {fileID: 0}
 --- !u!1001 &417473514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4548,21 +4576,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 968292777417071141, guid: 56a93cd127ed0184982c13ec0a61cfa5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.49618
-      objectReference: {fileID: 0}
-    - target: {fileID: 968292777417071141, guid: 56a93cd127ed0184982c13ec0a61cfa5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.49618
-      objectReference: {fileID: 0}
-    - target: {fileID: 968292777417071141, guid: 56a93cd127ed0184982c13ec0a61cfa5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.49618
-      objectReference: {fileID: 0}
     - target: {fileID: 968292777417071141, guid: 56a93cd127ed0184982c13ec0a61cfa5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20993,8 +21006,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5838322814494609567, guid: 111690d73c9728741bd54e3ad6278183,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397084656}
   m_SourcePrefab: {fileID: 100100000, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
+--- !u!4 &1955009033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8383545866035938411, guid: 111690d73c9728741bd54e3ad6278183,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929945667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966922834
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,14 +12,16 @@ public class PickObject : MonoBehaviour
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private float checkDistance;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Transform pjtransform;
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
+        
     }
 
     void Update()
     {
-
+        pjtransform = gameObject.GetComponentInParent<Transform>();
         if (pickedObject != null)
         {
             if (Input.GetKey(KeyCode.R) && pickedObject.CompareTag("ObjetoPickeable"))
@@ -42,7 +44,7 @@ public class PickObject : MonoBehaviour
     private void CheckRaycastHit()
     {
         RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, checkDistance, layerMask))
+        if (Physics.Raycast(raycastOrigin.position, pjtransform.forward, out hit, checkDistance, layerMask))
         {
             InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
             Text textComponent = hit.collider.GetComponent<Text>();
@@ -66,7 +68,7 @@ public class PickObject : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.forward * checkDistance);
     }
     private void OnTriggerStay(Collider other)
