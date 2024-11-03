@@ -12,6 +12,10 @@ TagManager:
   - ObjetoconTexto
   - CambioEscena
   - MedicalKit
+  - Cuadros
+  - WaitTime
+  - Die
+  - EndScene
   layers:
   - Default
   - TransparentFX
@@ -26,7 +30,7 @@ TagManager:
   - Interactuable
   - Cuadro
   - Cajones
-  - 
+  - MedicalKit
   - 
   - 
   - 
