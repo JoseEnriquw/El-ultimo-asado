@@ -15,6 +15,9 @@ public class PickObject : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform pjtransform;
     private LayerMask  maskCajones;
+    [SerializeField] private GameObject _UI;
+    bool ultimoreconocido=false;
+
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
@@ -42,7 +45,7 @@ public class PickObject : MonoBehaviour
         }
 
     }
-
+    #region RAYCAST
     private void CheckRaycastHit()
     {
         RaycastHit hit;
@@ -73,10 +76,12 @@ public class PickObject : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.forward * checkDistance);
     }
+    #endregion
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("ObjetoPickeable") && (maskCajones != (maskCajones | (1 << other.gameObject.layer))))
         {
+            ultimoreconocido = true;
             if (Input.GetKey(KeyCode.E) && pickedObject == null)
             {
                 other.GetComponent<Rigidbody>().useGravity = false;
@@ -88,6 +93,7 @@ public class PickObject : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("ItemInventory"))
         {
+            ultimoreconocido = true;
             if (Input.GetKey(KeyCode.E))
             {
                 GameObject Itempickedup = other.gameObject;
@@ -99,10 +105,21 @@ public class PickObject : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("ObjetoPickeable") && (maskCajones == (maskCajones | (1 << other.gameObject.layer))))
         {
-            //other.GetComponent().ActivarObjeto();
+            ultimoreconocido = true;
+            other.GetComponent<OpenandClose>().AbreCierra();
+            if (Input.GetKey(KeyCode.E))
+            {
+                
+            }
+
+
+        }
+        else
+        {
+            ultimoreconocido = false;
         }
     }
-
+    #region OBJETO 
     public void SetPickedObject(GameObject item)
     {
         UnequipItem();
@@ -172,6 +189,32 @@ public class PickObject : MonoBehaviour
             pickedObject = null;
         }
     }
+    #endregion
 
+    #region INTERACCION
+    //private void SelectedObject(Transform trasnform)
+    //{
+    //    //transform.GetComponent<MeshRenderer>().material.color = Color.green;
+    //    ultimoreconocido = trasnform.gameObject;
+    //}
+    //private void Deselect()
+    //{
+    //    if (ultimoreconocido)
+    //    {
+    //        //ultimoreconocido.GetComponent<Renderer>().material.color = Color.white;
+    //        ultimoreconocido = null;
+    //    }
+    //}
 
+    private void OnGUI()
+    {
+        if(ultimoreconocido) {
+            _UI.SetActive(true);
+        }
+        else
+        {
+            _UI.SetActive(false);
+        }
+    }
+    #endregion
 }
