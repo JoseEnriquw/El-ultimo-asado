@@ -11,6 +11,8 @@ TagManager:
   - PlayerManager
   - ObjetoconTexto
   - CambioEscena
+  - MedicalKit
+  - Cuadros
   - WaitTime
   layers:
   - Default
@@ -26,7 +28,7 @@ TagManager:
   - Interactuable
   - Cuadro
   - Cajones
-  - 
+  - MedicalKit
   - 
   - 
   - 
