@@ -8,14 +8,25 @@ namespace Assets.Scripts.Character
         [Header("Footstep Sounds")]
         [SerializeField] private List<AudioClip> audioClipGrassSteps;
         [SerializeField] private List<AudioClip> audioClipHouseSteps;
+
         [SerializeField] private Transform raycastOrigin;
+
+        [Header("Grab Object")]
+        [SerializeField] private AudioClip grabObject;
+
+        [Header("Drop Object")]
+        [SerializeField] private AudioClip dropObject;
+
         private readonly float rayDistance = 1.5f;
 
-        private AudioSource audioSourceSteps;
+        private AudioSource audioSourceSteps, pickobject, _dropObject;
+       
 
         private void Start()
         {
-            audioSourceSteps = GetComponent<AudioSource>();
+            audioSourceSteps = GetComponents<AudioSource>()[0];
+            pickobject = GetComponents<AudioSource>()[1];
+            _dropObject = GetComponents<AudioSource>()[2];
         }
 
         public void PlaySteps()
@@ -29,6 +40,15 @@ namespace Assets.Scripts.Character
                 AudioClip audioClip = audioClipSteps[Random.Range(0, audioClipSteps.Count)];
                 audioSourceSteps.PlayOneShot(audioClip);
             }
+        }
+        public void PlayPickObject()
+        {   
+             audioSourceSteps.PlayOneShot(grabObject);            
+        }
+
+        public void PlayDropObject()
+        {
+            audioSourceSteps.PlayOneShot(dropObject);
         }
 
         private Surface.ESurfaceType GetSurfaceType()
