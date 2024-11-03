@@ -17,11 +17,13 @@ public class PickObject : MonoBehaviour
     private LayerMask  maskCajones;
     [SerializeField] private GameObject _UI;
     bool ultimoreconocido=false;
+    private HealthKitCounter healthKitCounter;
 
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
         maskCajones = LayerMask.GetMask("Cajones");
+        healthKitCounter = FindObjectOfType<HealthKitCounter>();
     }
 
     void Update()
@@ -113,6 +115,19 @@ public class PickObject : MonoBehaviour
             }
 
 
+        }
+        else if (other.gameObject.CompareTag("MedicalKit"))
+        {
+            ultimoreconocido = true;
+            if (Input.GetKey(KeyCode.E))
+            {
+                GameObject Itempickedup = other.gameObject;
+
+                ItemInventory item = Itempickedup.GetComponent<ItemInventory>();
+
+                _inventory.AddItem(Itempickedup, item);
+                healthKitCounter.IncrementarContador();
+            }
         }
         else
         {
