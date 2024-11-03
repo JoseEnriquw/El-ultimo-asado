@@ -16,6 +16,8 @@ TagManager:
   - WaitTime
   - Die
   - EndScene
+  - Linterna
+  - PanelElectrico
   layers:
   - Default
   - TransparentFX
