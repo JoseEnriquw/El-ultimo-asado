@@ -1,33 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class JoshAnimatorControllerState : MonoBehaviour
+public class WaypointManager : MonoBehaviour
 {
     // la lista de wayPoints asignados desde el editor
     [SerializeField] private List<Transform> wayPoints = new List<Transform>();
 
     public bool isMoving;
-    public bool isWaiting;
     public int wayPointIndex;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
     // para aplicar movimiento en bucle
-    [SerializeField] private bool isLoop;
+    [SerializeField] bool isLoop;
 
     // para aplicar movimiento aleatorio entre los waypoints
-    [SerializeField] private bool isRandom;
+    [SerializeField] bool isRandom;
 
     // solo para probar la animacion de muerte
-    [SerializeField] private bool isDead;
+    [SerializeField] bool isDead;
 
     // almacenaremos posicion antes de manipular transform
     private Vector3 previousPosition;
-    private float movingDifference;
 
     // el animator para administrar la maquina de estados
     Animator animator;
@@ -51,17 +48,11 @@ public class JoshAnimatorControllerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isWaiting)
-        {
-            Animate();
-        }
+        Animate();
 
         if (!isDead)
         {
-            if (!isWaiting)
-            {
-                WaypointMovement();
-            }
+            WaypointMovement();
         }
 
     }
@@ -76,7 +67,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
         //}
 
         // almacenamos en un float si hubo desplazamiento del character
-        movingDifference = Vector3.Distance(previousPosition, new Vector3(rb.transform.position.x, 0.0f, rb.transform.position.z));
+        float movingDifference = Vector3.Distance(previousPosition, new Vector3(rb.transform.position.x, 0.0f, rb.transform.position.z));
         //Debug.Log(movingDifference);
 
         // chequeamos si se movio mas que una cierta distancia
@@ -149,23 +140,5 @@ public class JoshAnimatorControllerState : MonoBehaviour
             }
 
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("WaitTime"))
-        {
-            movingDifference = 0.0f;
-            isWaiting = true;
-            animator.SetBool("isWalking", false);
-            wayPointIndex++;
-            Invoke("IsWaiting", 5.0f);
-            Debug.Log("should wait here...");
-        }
-    }
-
-    public void IsWaiting()
-    {
-        isWaiting = false;
     }
 }
