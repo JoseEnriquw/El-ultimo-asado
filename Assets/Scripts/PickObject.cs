@@ -149,19 +149,18 @@ public class PickObject : MonoBehaviour
             BusquedaFusible = true;
             countFuse.IncrementarContador(true);
         }
-        if (BusquedaFusible && interactable != null && interactable.interactionID == 20 && ElectricPanelCompleted && _inventory.hasLinterna)
+        if (BusquedaFusible && interactable != null && interactable.interactionID == 21 && ElectricPanelCompleted && _inventory.hasLinterna)
         {
-            if (ContadorFuse < 5)
-            {
-                _josh.ForceResumeMovement();
-                var text = $"Aplicar Primeros Auxilios {ContadorFuse}/{maxFuse}";
+            if (ContadorFuse < 2)
+            {               
+                var text = $"Colocar Fusibles {ContadorFuse}/{maxFuse}";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
-                ApplyMedicalKit(otherObject);
+                ApplyInventory(otherObject);
             }
             else
             {
 
-                textComponent.UpdateTextBasedOnInteraction(true, "Busca a Josh", true);
+                textComponent.UpdateTextBasedOnInteraction(true, "Ve a la cocina", true);
                 ChangueScene = true;
             }
 
@@ -195,9 +194,12 @@ public class PickObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) )
         {
+            Text textComponent = otherObject.GetComponent<Text>();
             _inventory.Linterna.SetActive(true);
             Destroy(otherObject);
             _inventory.hasLinterna = true;
+            var text = "Busca el Panel de Luz";
+            textComponent.UpdateTextBasedOnInteraction(true, text, false);
         }
     }
 
@@ -253,7 +255,7 @@ public class PickObject : MonoBehaviour
                 _josh.ForceResumeMovement();
                 var text = $"Aplicar Primeros Auxilios {ContadorMedikalkit}/{maxBotiquines}";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
-                ApplyMedicalKit(otherObject);
+                ApplyInventory(otherObject);
             }
             else
             {
@@ -277,7 +279,7 @@ public class PickObject : MonoBehaviour
             }
         }
     }
-    private void ApplyMedicalKit(GameObject otherObject)
+    private void ApplyInventory(GameObject otherObject)
     {
         if (pickedObject != null)
         {
@@ -296,6 +298,7 @@ public class PickObject : MonoBehaviour
                     _playsound.PlayDropObject();
                     DestroyPickedObject();
                     ContadorMedikalkit++;
+                    ContadorFuse++; //ver de arreglar despues por escena
                 }
                 else
                 {
