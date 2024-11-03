@@ -11313,6 +11313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_Base_DD_01
       objectReference: {fileID: 0}
+    - target: {fileID: 8744012517389025112, guid: 226aa234041d2be48881aab9632ea78e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 811105021, guid: 226aa234041d2be48881aab9632ea78e, type: 3}
     - {fileID: 436849880, guid: 226aa234041d2be48881aab9632ea78e, type: 3}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickObject : MonoBehaviour
 {
@@ -13,10 +14,11 @@ public class PickObject : MonoBehaviour
     [SerializeField] private float checkDistance;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform pjtransform;
+    private LayerMask  maskCajones;
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
-        
+        maskCajones = LayerMask.GetMask("Cajones");
     }
 
     void Update()
@@ -73,7 +75,7 @@ public class PickObject : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("ObjetoPickeable"))
+        if (other.gameObject.CompareTag("ObjetoPickeable") && (maskCajones != (maskCajones | (1 << other.gameObject.layer))))
         {
             if (Input.GetKey(KeyCode.E) && pickedObject == null)
             {
@@ -95,7 +97,10 @@ public class PickObject : MonoBehaviour
                 _inventory.AddItem(Itempickedup, item);
             }
         }
-
+        else if (other.gameObject.CompareTag("ObjetoPickeable") && (maskCajones == (maskCajones | (1 << other.gameObject.layer))))
+        {
+            //other.GetComponent().ActivarObjeto();
+        }
     }
 
     public void SetPickedObject(GameObject item)
