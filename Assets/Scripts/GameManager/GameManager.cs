@@ -18,7 +18,8 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 0;
+            scene = 2;
+            //GetScene( 3);
             DontDestroyOnLoad(this);
         }
         public void NextScene()
@@ -31,5 +32,13 @@ namespace Assets.Scripts.GameManager
         {
             SceneManager.LoadScene(scene);
         }  
+
+        public void GetScene( int _scenenumber) { 
+            if(3 == _scenenumber)
+            {
+                JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
+                jody.IsDead();
+            }
+        }
     }
 }
