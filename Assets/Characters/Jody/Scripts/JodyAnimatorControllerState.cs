@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 using UnityEngine.UI;
 
 public class JodyAnimatorControllerState : MonoBehaviour
@@ -62,6 +63,10 @@ public class JodyAnimatorControllerState : MonoBehaviour
             {
                 WaypointMovement();
             }
+        }
+        if (isDead)
+        {
+            Animate();
         }
 
     }
@@ -167,5 +172,11 @@ public class JodyAnimatorControllerState : MonoBehaviour
     public void IsWaiting()
     {
         isWaiting = false;
+    }
+
+    public void IsDead()
+    {
+        isDead = true;
+        animator.SetBool("isDead", true);
     }
 }

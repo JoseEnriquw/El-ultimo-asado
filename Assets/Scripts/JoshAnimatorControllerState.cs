@@ -29,9 +29,15 @@ public class JoshAnimatorControllerState : MonoBehaviour
     private Vector3 previousPosition;
     private float movingDifference;
 
+    [Header("Dead Scream")]
+    [SerializeField] private AudioClip deadScream;
+
+    private AudioSource _gdeadScream;
+
     // el animator para administrar la maquina de estados
     Animator animator;
     Rigidbody rb;
+    PickObject _endscene;
 
 
     // Start is called before the first frame update
@@ -46,7 +52,16 @@ public class JoshAnimatorControllerState : MonoBehaviour
 
         // al comienzo esta vivo
         isDead = false;
+
+        _gdeadScream = GetComponent<AudioSource>();
+        _endscene = FindObjectOfType<PickObject>();
     }
+
+    public void PlayScream()
+    {
+        _gdeadScream.PlayOneShot(deadScream);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -55,6 +70,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
         {
             Animate();
         }
+       
 
         if (!isDead)
         {
@@ -153,7 +169,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("WaitTime"))
+        if (other.CompareTag("WaitTime") )
         {
             movingDifference = 0.0f;
             isWaiting = true;
@@ -161,6 +177,11 @@ public class JoshAnimatorControllerState : MonoBehaviour
             wayPointIndex++;
             Invoke("IsWaiting", 5.0f);
             Debug.Log("should wait here...");
+        }       
+        if (other.CompareTag("Die"))
+        {
+            isDead = true;
+            PlayScream();
         }
     }
 
@@ -168,4 +189,11 @@ public class JoshAnimatorControllerState : MonoBehaviour
     {
         isWaiting = false;
     }
+    public void ForceResumeMovement()
+    {
+        isWaiting = false;
+        Animate();
+        //animator.SetBool("isWalking", true); // Activa la animación inmediatamente
+    }
+
 }
