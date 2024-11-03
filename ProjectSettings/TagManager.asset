@@ -12,6 +12,7 @@ TagManager:
   - ObjetoconTexto
   - CambioEscena
   - MedicalKit
+  - Cuadros
   layers:
   - Default
   - TransparentFX
