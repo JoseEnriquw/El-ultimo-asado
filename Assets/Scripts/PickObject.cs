@@ -1,4 +1,5 @@
 using Assets.Scripts.Character;
+using Assets.Scripts.GameManager;
 using System;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ public class PickObject : MonoBehaviour
     bool Completed = false;
     private int ContadorMedikalkit = 0;
     PlayerSounds _playsound;
+    JoshAnimatorControllerState _josh;
+    public bool ChangueScene = false;
+    GameManager _gamenager;
+    private int maxBotiquines =5;
 
     private void Start()
     {
@@ -26,6 +31,8 @@ public class PickObject : MonoBehaviour
         maskCajones = LayerMask.GetMask("Cajones");
         healthKitCounter = FindObjectOfType<HealthKitCounter>();
         _playsound = FindObjectOfType<PlayerSounds>();
+        _josh = FindObjectOfType<JoshAnimatorControllerState>();
+        _gamenager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -108,14 +115,26 @@ public class PickObject : MonoBehaviour
                 HandleCuadros(otherObject);
                 break;
             case "Linterna":
-                HandleLinterna(otherObject);
+                HandleAsado(otherObject);
+                break;
+            case "Asado":
+                HandleAsado(otherObject);
+                break;
+            case "EndScene":
+                HandleEndScene(otherObject);
                 break;
             default:
                 break;
         }
     }
 
-    private void HandleLinterna(GameObject otherObject)
+    private void HandleEndScene(GameObject otherObject)
+    {
+        if (ChangueScene)
+            _gamenager.NextScene();
+    }
+
+    private void HandleAsado(GameObject otherObject)
     {
         
     }
@@ -169,12 +188,16 @@ public class PickObject : MonoBehaviour
         {
             if (ContadorMedikalkit < 5)
             {
-                textComponent.UpdateTextBasedOnInteraction(true, "Aplicar Medical Kit", false);
+                _josh.ForceResumeMovement();
+                var text = $"Aplicar Primeros Auxilios {ContadorMedikalkit}/{maxBotiquines}";
+                textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 ApplyMedicalKit(otherObject);
             }
             else
             {
+                                
                 textComponent.UpdateTextBasedOnInteraction(true, "Busca a Josh", true);
+                ChangueScene = true;
             }
 
         }
@@ -196,6 +219,7 @@ public class PickObject : MonoBehaviour
     {
         if (pickedObject != null)
         {
+
             InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
             Text textComponent = otherObject.GetComponent<Text>();
             if (interactable != null)

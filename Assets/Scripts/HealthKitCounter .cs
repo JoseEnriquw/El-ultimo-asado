@@ -10,10 +10,12 @@ public class HealthKitCounter : MonoBehaviour
     private int contadorBotiquin = 0;
     private const int maxBotiquines = 5; 
     public bool Completed = false;
+    
 
     private void Start()
-    {       
+    {
         //ActualizarContadorText();
+        
     }
 
     public void IncrementarContador(bool firstInteraction=false)
@@ -29,7 +31,9 @@ public class HealthKitCounter : MonoBehaviour
             ActualizarContadorText();
             if (contadorBotiquin == 5)
             {
+
                 Completed = true;
+                
                 ActualizarContadorText();
 
             }

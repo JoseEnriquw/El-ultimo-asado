@@ -14,6 +14,8 @@ TagManager:
   - MedicalKit
   - Cuadros
   - WaitTime
+  - Die
+  - EndScene
   layers:
   - Default
   - TransparentFX
