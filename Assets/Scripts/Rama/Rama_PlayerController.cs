@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rama_PlayerController : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class Rama_PlayerController : MonoBehaviour
 
         //RAYCAST hacia adelante
         RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin.position, pjtransform.TransformDirection(1,0,1), out hit, checkDistance, CuadroLayer))
+        if (Physics.Raycast(raycastOrigin.position, transform.TransformDirection(1,0,1), out hit, checkDistance, CuadroLayer))
         {
             // Si el raycast detecta un objeto en la capa CuadroLayer
             Rigidbody cuadroRb = hit.collider.GetComponent<Rigidbody>();

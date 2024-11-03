@@ -13,6 +13,7 @@ TagManager:
   - CambioEscena
   - MedicalKit
   - Cuadros
+  - WaitTime
   layers:
   - Default
   - TransparentFX
