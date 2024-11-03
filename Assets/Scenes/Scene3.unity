@@ -4312,7 +4312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.77630615, y: -1.9553833}
+  m_AnchoredPosition: {x: 0.77630615, y: -1.9553986}
   m_SizeDelta: {x: -360.9611, y: -178.8138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &464010657
@@ -9561,6 +9561,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1098712790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098712785}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3, y: 1.15, z: 1.07}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1098712791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098712785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiOn: 0
+  text: Busca los elementos del botiquin
+  contadorText: {fileID: 1002236574}
 --- !u!1001 &1129140053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10664,7 +10700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guiOn: 0
   text: TRAEME LENIA WACHO
-  contadorText: {fileID: 0}
+  contadorText: {fileID: 1002236574}
 --- !u!65 &1325771396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15005,6 +15041,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1098712788}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c56e0913e30750d458b8f499c2af5e1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1098712791}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c56e0913e30750d458b8f499c2af5e1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1098712790}
     - targetCorrespondingSourceObject: {fileID: 5666273715083070389, guid: c56e0913e30750d458b8f499c2af5e1d,
         type: 3}
       insertIndex: -1

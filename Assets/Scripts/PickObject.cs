@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
 
 public class PickObject : MonoBehaviour
@@ -18,6 +19,7 @@ public class PickObject : MonoBehaviour
     [SerializeField] private GameObject _UI;
     bool ultimoreconocido=false;
     private HealthKitCounter healthKitCounter;
+    private bool Busquedabotiquin = false;
 
     private void Start()
     {
@@ -62,13 +64,14 @@ public class PickObject : MonoBehaviour
                 {
                     Debug.Log("Interacción válida con " + interactable.gameObject.name);
                     interactable.Interact();
-                    textComponent.UpdateTextBasedOnInteraction(true);
+                    var text = "Bien echo!!!";
+                    textComponent.UpdateTextBasedOnInteraction(true, text);
                     DestroyPickedObject();
                 }
                 else
                 {
                     Debug.Log("El objeto equipado no puede interactuar con " + interactable.gameObject.name);
-                    textComponent.UpdateTextBasedOnInteraction(false);
+                    textComponent.UpdateTextBasedOnInteraction(false, "");
                 }
             }
         }
@@ -118,16 +121,26 @@ public class PickObject : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("MedicalKit"))
         {
-            ultimoreconocido = true;
-            if (Input.GetKey(KeyCode.E))
+            Text textComponent = other.GetComponent<Text>();
+            if (!Busquedabotiquin)
             {
-                GameObject Itempickedup = other.gameObject;
-
-                ItemInventory item = Itempickedup.GetComponent<ItemInventory>();
-
-                _inventory.AddItem(Itempickedup, item);
-                healthKitCounter.IncrementarContador();
+                Busquedabotiquin = true;
+                healthKitCounter.IncrementarContador(true);
             }
+            else
+            {
+                ultimoreconocido = true;
+                if (Input.GetKey(KeyCode.E))
+                {
+                    GameObject Itempickedup = other.gameObject;
+
+                    ItemInventory item = Itempickedup.GetComponent<ItemInventory>();
+
+                    _inventory.AddItem(Itempickedup, item);
+                    healthKitCounter.IncrementarContador();
+                }
+            }
+            
         }
         else
         {

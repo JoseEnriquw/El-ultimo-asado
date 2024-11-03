@@ -12,12 +12,17 @@ public class HealthKitCounter : MonoBehaviour
 
     private void Start()
     {       
-        ActualizarContadorText();
+        //ActualizarContadorText();
     }
 
-    public void IncrementarContador()
+    public void IncrementarContador(bool firstInteraction=false)
     {
-        if (contadorBotiquin < maxBotiquines)
+        if (firstInteraction)
+        {
+            ActualizarContadorText();
+        }
+        else
+        if ((contadorBotiquin < maxBotiquines) && (!firstInteraction))
         {
             contadorBotiquin++;
             ActualizarContadorText();

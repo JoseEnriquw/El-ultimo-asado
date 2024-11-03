@@ -12,22 +12,22 @@ public class Text : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         guiOn = true;
-        UpdateTextBasedOnInteraction(true); // Actualiza el texto al entrar
+       // UpdateTextBasedOnInteraction(true); // Actualiza el texto al entrar
     }
 
     private void OnTriggerExit(Collider other)
     {
         guiOn = false;
-        UpdateTextBasedOnInteraction(false); // Actualiza el texto al salir
+       // UpdateTextBasedOnInteraction(false); // Actualiza el texto al salir
     }
 
-    public void UpdateTextBasedOnInteraction(bool interactionSuccessful)
+    public void UpdateTextBasedOnInteraction(bool interactionSuccessful, string _text, bool destroy=false)
     {
         // Cambia el texto basado en la interacción
-        text = interactionSuccessful ? "BIEN ECHO ME VOY" : ""; // Si no hay interacción, se puede dejar vacío
+        text = interactionSuccessful ? _text : ""; // Si no hay interacción, se puede dejar vacío
         contadorText.text = text; // Actualiza el texto en la UI
 
-        if (interactionSuccessful)
+        if (interactionSuccessful && destroy)
             Destroy(gameObject, 0.10f); // Destruye el objeto después de un tiempo si es necesario
     }
     //[SerializeField] private bool GuiOn=false;
