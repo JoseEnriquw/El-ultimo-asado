@@ -34,7 +34,7 @@ public class CountFuse : MonoBehaviour
         {
             contadorFuse++;
             ActualizarContadorText();
-            if (contadorFuse == 5)
+            if (contadorFuse == 2)
             {
                 Completed = true;
 
@@ -45,6 +45,6 @@ public class CountFuse : MonoBehaviour
 
     private void ActualizarContadorText()
     {
-        contadorText.text = Completed ? "Buscar a Judy" : $"Busca los fusibles dentro de la casa {contadorFuse}/{maxFuse}";
+        contadorText.text = Completed ? "Volver al Panel Electrico" : $"Busca los fusibles dentro de la casa {contadorFuse}/{maxFuse}";
     }
 }
