@@ -25,6 +25,7 @@ public class JodyAnimatorControllerState : MonoBehaviour
 
     // solo para probar la animacion de muerte
     [SerializeField] private bool isDead;
+    [SerializeField] private bool isDeadOnBack;
 
     // almacenaremos posicion antes de manipular transform
     private Vector3 previousPosition;
@@ -35,7 +36,7 @@ public class JodyAnimatorControllerState : MonoBehaviour
     Rigidbody rb;
 
     //[SerializeField] private GameObject scene2AnimationTrigger;
-    [SerializeField] private AudioSource gritoJody;
+    private AudioSource gritoJody;
 
 
     // Start is called before the first frame update
@@ -51,23 +52,28 @@ public class JodyAnimatorControllerState : MonoBehaviour
         // al comienzo esta vivo
         isDead = false;
         isWaiting = true;
+        gritoJody = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isWaiting)
-        {
-            Animate();
-        }
-
-        if (!isDead)
+        if (!isDeadOnBack)
         {
             if (!isWaiting)
             {
-                WaypointMovement();
+                Animate();
             }
-        }
+
+            if (!isDead)
+            {
+                if (!isWaiting)
+                {
+                    WaypointMovement();
+                }
+            }
+        }//
+        
 
     }
 
@@ -183,5 +189,9 @@ public class JodyAnimatorControllerState : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("isDead", true);
+    }
+    public void Gritar()
+    {
+        gritoJody.Play();
     }
 }

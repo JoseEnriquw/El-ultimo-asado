@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))] //Asegurarnos de que el objeto tenga un componente AudioSource 
@@ -19,7 +17,7 @@ public class ActivarSonidoTrigger : MonoBehaviour
         if (other.CompareTag("Player") || ((1 << other.gameObject.layer) & layerToDetect) != 0)
         {
             // Reproduce el sonido si el audio no está ya sonando
-            if (!audioSource.isPlaying)
+            if (audioSource!=null && !audioSource.isPlaying)
             {
                 audioSource.Play();
             }
