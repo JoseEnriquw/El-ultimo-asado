@@ -3593,7 +3593,7 @@ GameObject:
   - component: {fileID: 352067504}
   - component: {fileID: 352067503}
   m_Layer: 0
-  m_Name: Regreso al Hogar
+  m_Name: AmbientSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3610,7 +3610,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 656f27892fd8bf8448bbfaa597b35d10,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ba0ac097a239b2743bafac2ad7b685da, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 12de98185820ea7489c665575d4a4687, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.074
   m_Pitch: 1
@@ -5370,7 +5370,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c56e0913e30750d458b8f499c2af5e1d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c56e0913e30750d458b8f499c2af5e1d,
         type: 3}
@@ -10882,8 +10882,34 @@ PrefabInstance:
     - {fileID: 9100193135708414085, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5838322814494609567, guid: 111690d73c9728741bd54e3ad6278183,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1280906872}
   m_SourcePrefab: {fileID: 100100000, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
+--- !u!1 &1280906871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5838322814494609567, guid: 111690d73c9728741bd54e3ad6278183,
+    type: 3}
+  m_PrefabInstance: {fileID: 1280906870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1280906872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280906871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ce423285f672941b0b8b793ec6c675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 5
+  outlineColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  outlineWidth: 5
+  mainCamera: {fileID: 349058638}
 --- !u!1001 &1281865442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16547,6 +16573,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 242780604613349000, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 314795416981977382, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16636,6 +16667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tryHouseV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453181610506072053, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1772789259504833495, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
@@ -16727,6 +16763,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 4807792180721902128, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5224570968933470795, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: m_Layer
@@ -16778,6 +16819,11 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6412482628155038027, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462698883306969333, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: m_IsActive
       value: 0

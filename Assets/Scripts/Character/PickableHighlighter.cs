@@ -21,7 +21,9 @@ namespace Assets.Scripts.Character
             {
                 GameObject hitObject = hit.collider.gameObject;
 
-                if (hitObject.CompareTag(Tags.ObjetoPickeable))
+                if (hitObject.CompareTag(Tags.ObjetoPickeable) 
+                    || hitObject.CompareTag(Tags.Linterna)
+                    || hitObject.CompareTag(Tags.PanelElectrico))
                 {
                     // Si es un nuevo objeto, actualiza el resaltado
                     if (currentObject != hitObject)
