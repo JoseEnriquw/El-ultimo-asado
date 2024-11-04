@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017173914, g: 0.00000002660764, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017173978, g: 0.00000002660764, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1927,7 +1927,7 @@ GameObject:
   - component: {fileID: 264953916}
   - component: {fileID: 264953915}
   m_Layer: 0
-  m_Name: Regreso al Hogar
+  m_Name: AmbientSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1944,7 +1944,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 656f27892fd8bf8448bbfaa597b35d10,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ba0ac097a239b2743bafac2ad7b685da, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 76c7ae41e63f8c847ad2fbe12fa4f033, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.074
   m_Pitch: 1
