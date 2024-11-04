@@ -29,7 +29,7 @@ public class Pariilla : MonoBehaviour
         {
             contadorParrilla++;
             ActualizarContadorText();
-            if (contadorParrilla == 5)
+            if (contadorParrilla == 1)
             {
                 Completed = true;
                 ActualizarContadorText();

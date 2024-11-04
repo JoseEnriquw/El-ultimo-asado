@@ -5169,6 +5169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6387943863263434136}
+  - component: {fileID: 2346116276555288175}
   m_Layer: 0
   m_Name: LuzManager
   m_TagString: Untagged
@@ -5191,6 +5192,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 314795416981977382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2346116276555288175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878310096633764234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96adabb1b11bbf940b387b0f61a18730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Luces:
+  - {fileID: 769243871547723964}
+  - {fileID: 8961324063117046554}
+  - {fileID: 5224570968933470795}
+  - {fileID: 7454525809959652420}
+  - {fileID: 79972181696603417}
+  - {fileID: 8034499689926325923}
+  - {fileID: 729047293987227330}
+  - {fileID: 6623217812653164062}
+  - {fileID: 6412482628155038027}
+  - {fileID: 987105247610591940}
+  - {fileID: 1872889503549169904}
+  - {fileID: 6117966378698473681}
+  - {fileID: 6576937994567536146}
+  - {fileID: 3949637822276069401}
+  - {fileID: 2080428694443105684}
+  - {fileID: 5732869870007951182}
+  - {fileID: 2430426668190721584}
+  - {fileID: 3134060865619292885}
+  - {fileID: 2701244972142368488}
+  - {fileID: 3113906212581094991}
+  - {fileID: 5900333935339060921}
+  - {fileID: 8542745553287764627}
+  - {fileID: 1772789259504833495}
+  - {fileID: 471316675621227478}
+  Luzcortada: 0
 --- !u!1 &6906838415696546462
 GameObject:
   m_ObjectHideFlags: 0
@@ -13579,6 +13618,12 @@ PrefabInstance:
 --- !u!4 &418965534997109139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5543500264016486146, guid: 9e449ad702f407541bb09f2e86d10d44,
+    type: 3}
+  m_PrefabInstance: {fileID: 3945699792086186349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &471316675621227478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5743350618785959237, guid: 9e449ad702f407541bb09f2e86d10d44,
     type: 3}
   m_PrefabInstance: {fileID: 3945699792086186349}
   m_PrefabAsset: {fileID: 0}
