@@ -205,15 +205,15 @@ public class PickObject : MonoBehaviour
     {
         if (pickedObject != null)
         {
-            if (Input.GetKey(KeyCode.R)  && !_parrilla.Completed)
+            if (!_parrilla.Completed)
             {
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
                 pickedObject.transform.SetParent(null);
                 pickedObject = null;
                 IsPickedObject = false;
-                Destroy(pickedObject);
                 _parrilla.IncrementarContador();
+                Destroy(pickedObject);
             }
         }
     }
@@ -221,12 +221,11 @@ public class PickObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) )
         {
-            Text textComponent = otherObject.GetComponent<Text>();
             _inventory.Linterna.SetActive(true);
             Destroy(otherObject);
             _inventory.hasLinterna = true;
             var text = "Busca el Panel de Luz";
-            textComponent.UpdateTextBasedOnInteraction(true, text, false);
+            UIManager.GetUIManager().SetTarea(text);
         }
     }
 
