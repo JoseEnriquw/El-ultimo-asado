@@ -11,6 +11,7 @@ namespace Assets.Scripts.Character
         [SerializeField] private float walkSpeed = 2f;
         [SerializeField] private float runSpeed = 5f;
         [SerializeField] private float mouseSensitivity = 100f;
+        private bool hasKeyCar;
 
         private CharacterController characterController;
         private Animator animator;
@@ -27,12 +28,14 @@ namespace Assets.Scripts.Character
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
             firstPersonCamera = GetComponentInChildren<CinemachineVirtualCamera>();
+            hasKeyCar = false;
         }
 
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            GameManager.GameManager.GetGameManager().OnPickUpObject += PickUpObject;
         }
 
         private void Update()
@@ -100,21 +103,57 @@ namespace Assets.Scripts.Character
         private void HandleAnimations()
         {
             // Calcular la velocidad horizontal
-            Vector3 horizontalVelocity = new Vector3(characterController.velocity.x, 0, characterController.velocity.z);
+            Vector3 horizontalVelocity = new(characterController.velocity.x, 0, characterController.velocity.z);
             float speedPercent = horizontalVelocity.magnitude / runSpeed;
 
             // Actualizar el parámetro 'Speed' en el Animator
             animator.SetFloat("Speed", speedPercent, 0.1f, Time.deltaTime);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void PickUpObject(GameObject gameObject)
         {
-            if (other.gameObject.tag == Tags.CambioEscena)
+            if (gameObject.name == "KeyCar")
             {
-                GameManager.GameManager.GetGameManager().NextScene();
+                var trigger = GameObject.Find("TriggerPursueEnemy");
+                var collider=trigger.GetComponent<Collider>();
+                collider.isTrigger = true;
+
+                var textComponent = GetComponent<Text>();
+                var text = "Busca el auto y cuidado con el asesino!!";
+                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                hasKeyCar = true;
             }
         }
 
+        private void OnTriggerExit(Collider other)
+        {
+            switch (other.gameObject.tag)
+            {
+                case Tags.WaitOutHouseEnemy:
+
+                    GameManager.GameManager.GetGameManager().ChangeEnemyState(EnemyStatesEnum.WaitOutHouse);
+                    other.isTrigger = false;
+                    break;
+
+                case Tags.PursueEnemy:
+                    GameManager.GameManager.GetGameManager().ChangeEnemyState(EnemyStatesEnum.Pursue);
+                    other.isTrigger = false;
+                    GameManager.GameManager.GetGameManager().PlayEnemyScream();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag(Tags.Car) && hasKeyCar)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                GameManager.GameManager.GetGameManager().NextScene();
+            }            
+        }
 
     }
 }

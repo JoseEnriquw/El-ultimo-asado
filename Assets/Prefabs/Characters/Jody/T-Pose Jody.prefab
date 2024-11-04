@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a5a3bcc2af6244149a95cc7cb5e1d609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -181.7
+      value: -225.953
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5a3bcc2af6244149a95cc7cb5e1d609,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.05
+      value: -19.395
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5a3bcc2af6244149a95cc7cb5e1d609,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 94.92805
+      value: 94.342
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5a3bcc2af6244149a95cc7cb5e1d609,
         type: 3}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPoints: []
   isMoving: 0
-  isWaiting: 0
+  isWaiting: 1
   wayPointIndex: 0
   moveSpeed: 1.5
   rotationSpeed: 6
