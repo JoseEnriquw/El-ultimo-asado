@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1832139, g: 0.2268478, b: 0.29472634, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3238,8 +3238,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5929208353965183077, guid: 67143f4ca4712b74d976245b72441097,
         type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929208353965183077, guid: 67143f4ca4712b74d976245b72441097,
+        type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4758,6 +4763,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainLightProbes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101256898395201124, guid: f4e4d8517c45a1a4390ceaa4221bd34e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101256898395201124, guid: f4e4d8517c45a1a4390ceaa4221bd34e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8101256898395201125, guid: f4e4d8517c45a1a4390ceaa4221bd34e,
         type: 3}
@@ -8503,7 +8518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &916540975
 Transform:
   m_ObjectHideFlags: 0
@@ -13289,7 +13304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602809014}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LightProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15292,6 +15307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Valley
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285457758334040143, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7285457758462394510, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
         type: 3}
