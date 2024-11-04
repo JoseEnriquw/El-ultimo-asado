@@ -392,6 +392,96 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1120744952193323183}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &440385606149663911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6507194613947877925}
+    m_Modifications:
+    - target: {fileID: 1403819864923113916, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621495543269466739, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_Name
+      value: Electric torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621495543269466739, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b10bb68d5c90130459080ca60514c35b, type: 3}
+--- !u!1 &1196873361608298196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1621495543269466739, guid: b10bb68d5c90130459080ca60514c35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 440385606149663911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2006341916206699630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2146920936950266057, guid: b10bb68d5c90130459080ca60514c35b,
+    type: 3}
+  m_PrefabInstance: {fileID: 440385606149663911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6756677602486758862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,6 +955,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1316962794164152422}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4fca6d181048588438037883125e9ade,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2006341916206699630}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fca6d181048588438037883125e9ade,
         type: 3}

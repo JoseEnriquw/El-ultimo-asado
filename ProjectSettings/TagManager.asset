@@ -20,6 +20,11 @@ TagManager:
   - PursueEnemy
   - Linterna
   - PanelElectrico
+  - Instantiate
+  - Lenia
+  - Fosforos
+  - Diario
+  - Fuego
   layers:
   - Default
   - TransparentFX
@@ -35,7 +40,7 @@ TagManager:
   - Cuadro
   - Cajones
   - MedicalKit
-  - 
+  - Light
   - 
   - 
   - 
