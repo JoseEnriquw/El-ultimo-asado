@@ -31,7 +31,7 @@ public class PickObject : MonoBehaviour
     private int maxBotiquines =5;
     private int maxFuse = 2;
     Pariilla _parrilla;
-    public String hasTaginhand = "";
+    public string hasTaginhand = "";
     private TriggerJodyAnimation triggerJodyAnimation;
      
 
@@ -87,7 +87,6 @@ public class PickObject : MonoBehaviour
         if (Physics.Raycast(raycastOrigin.position, pjtransform.forward, out hit, checkDistance, layerMask))
         {
             InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
-            Text textComponent = hit.collider.GetComponent<Text>();
             if (interactable != null)
             {
                 ItemInventory itemInventory = pickedObject.GetComponent<ItemInventory>();
@@ -96,14 +95,14 @@ public class PickObject : MonoBehaviour
                     Debug.Log("Interacción válida con " + interactable.gameObject.name);
                     interactable.Interact();
                     var text = "Bien echo!!!";
-                    textComponent.UpdateTextBasedOnInteraction(true, text);
+                    UIManager.GetUIManager().SetTarea(text);
                     _playsound.PlayDropObject();
                     DestroyPickedObject();
                 }
                 else
                 {
                     Debug.Log("El objeto equipado no puede interactuar con " + interactable.gameObject.name);
-                    textComponent.UpdateTextBasedOnInteraction(false, "");
+                    UIManager.GetUIManager().SetTarea("");
                 }
             }
         }
@@ -156,7 +155,6 @@ public class PickObject : MonoBehaviour
 
     private void HandleElectricPanel(GameObject otherObject)
     {
-        Text textComponent = otherObject.GetComponent<Text>();
         InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
 
         if (!BusquedaFusible && interactable != null && interactable.interactionID == 20 && !ElectricPanelCompleted && _inventory.hasLinterna)
@@ -169,12 +167,13 @@ public class PickObject : MonoBehaviour
             if (ContadorFuse < 2)
             {               
                 var text = $"Colocar Fusibles {ContadorFuse}/{maxFuse}";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
                 ApplyInventory(otherObject);
             }
             else
             {
-                textComponent.UpdateTextBasedOnInteraction(true, "Ve a la cocina", true);
+                UIManager.GetUIManager().SetTarea("Ve a la cocina");
+                Destroy(otherObject, 0.10f);
                 triggerJodyAnimation.Activate();
                 ChangueScene = true;
             }
@@ -270,7 +269,6 @@ public class PickObject : MonoBehaviour
 
     private void HandleMedicalKit(GameObject otherObject)
     {
-        Text textComponent = otherObject.GetComponent<Text>();
         InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
 
         if (!Busquedabotiquin && interactable != null && interactable.interactionID == 11 && !MedicalKitCompleted)
@@ -284,13 +282,14 @@ public class PickObject : MonoBehaviour
             {
                 _josh.ForceResumeMovement();
                 var text = $"Aplicar Primeros Auxilios {ContadorMedikalkit}/{maxBotiquines}";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
                 ApplyInventory(otherObject);
             }
             else
             {
-                                
-                textComponent.UpdateTextBasedOnInteraction(true, "Busca a Josh", true);
+
+                UIManager.GetUIManager().SetTarea("Busca a Josh");
+                Destroy(otherObject, 0.10f);
                 ChangueScene = true;
             }
 
@@ -313,9 +312,7 @@ public class PickObject : MonoBehaviour
     {
         if (pickedObject != null)
         {
-
             InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
-            Text textComponent = otherObject.GetComponent<Text>();
             if (interactable != null)
             {
                 ItemInventory itemInventory = pickedObject.GetComponent<ItemInventory>();
@@ -324,7 +321,7 @@ public class PickObject : MonoBehaviour
                     Debug.Log("Interacción válida con " + interactable.gameObject.name);
                     interactable.Interact();
                     var text = "Bien echo!!!";
-                    textComponent.UpdateTextBasedOnInteraction(true, text);
+                    UIManager.GetUIManager().SetTarea(text);
                     _playsound.PlayDropObject();
                     DestroyPickedObject();
                     ContadorMedikalkit++;
@@ -333,7 +330,7 @@ public class PickObject : MonoBehaviour
                 else
                 {
                     Debug.Log("El objeto equipado no puede interactuar con " + interactable.gameObject.name);
-                    textComponent.UpdateTextBasedOnInteraction(false, "");
+                    UIManager.GetUIManager().SetTarea("");
                 }
             }
         }
@@ -427,33 +424,5 @@ public class PickObject : MonoBehaviour
             IsPickedObject = false;
         }
     }
-    #endregion
-
-    #region INTERACCION
-    //private void SelectedObject(Transform trasnform)
-    //{
-    //    //transform.GetComponent<MeshRenderer>().material.color = Color.green;
-    //    ultimoreconocido = trasnform.gameObject;
-    //}
-    //private void Deselect()
-    //{
-    //    if (ultimoreconocido)
-    //    {
-    //        //ultimoreconocido.GetComponent<Renderer>().material.color = Color.white;
-    //        ultimoreconocido = null;
-    //    }
-    //}
-
-    //private void OnGUI()
-    //{
-    //    if (ultimoreconocido)
-    //    {
-    //        _UI.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        _UI.SetActive(false);
-    //    }
-    //}
     #endregion
 }
