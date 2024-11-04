@@ -1,43 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace DoorScript
+
+public class PlayerDoorController : MonoBehaviour
 {
-	[RequireComponent(typeof(AudioSource))]
+    public bool open = false;
+    public float smooth = 1.0f;
+    public float doorOpenAngle = -90.0f;
+    public float doorCloseAngle = 0.0f;
+    public AudioSource audioSource;
+    public AudioClip openDoorSound;
+    public AudioClip closeDoorSound;
 
+    private bool playerInRange = false; // Para verificar si el jugador está cerca
 
-public class Door : MonoBehaviour {
-	public bool open;
-	public float smooth = 1.0f;
-	float DoorOpenAngle = -90.0f;
-    float DoorCloseAngle = 0.0f;
-	public AudioSource asource;
-	public AudioClip openDoor,closeDoor;
-	// Use this for initialization
-	void Start () {
-		asource = GetComponent<AudioSource> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (open)
-		{
-            var target = Quaternion.Euler (0, DoorOpenAngle, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * 5 * smooth);
-	
-		}
-		else
-		{
-            var target1= Quaternion.Euler (0, DoorCloseAngle, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, target1, Time.deltaTime * 5 * smooth);
-	
-		}  
-	}
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
-	public void OpenDoor(){
-		open =!open;
-		asource.clip = open?openDoor:closeDoor;
-		asource.Play ();
-	}
-}
+    void Update()
+    {
+        // Verifica si el jugador toca en la puerta y presiona "E"
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            ToggleDoor();
+        }
+
+        // Movimiento suave de la puerta
+        float targetAngle = open ? doorOpenAngle : doorCloseAngle;
+        Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, Time.deltaTime * smooth);
+    }
+
+    void ToggleDoor()
+    {
+        // Cambia el estado de la puerta
+        open = !open;
+
+        // Selecciona el sonido adecuado
+        audioSource.clip = open ? openDoorSound : closeDoorSound;
+        audioSource.Play();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Activa el rango si el jugador está cerca
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        // Desactiva el rango cuando el jugador se aleja
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
 }
