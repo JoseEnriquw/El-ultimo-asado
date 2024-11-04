@@ -12,6 +12,16 @@ public class Text : MonoBehaviour
         ResetText();
     }
 
+    private void Start()
+    {
+        
+        if (contadorText == null)
+        {
+            var gameObject=GameObject.Find("TareaNombretxt");
+            contadorText= gameObject.GetComponent<TextMeshProUGUI>();
+        }
+    }
+
     private void ResetText()
     {
         text = "";

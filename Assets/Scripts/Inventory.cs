@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
