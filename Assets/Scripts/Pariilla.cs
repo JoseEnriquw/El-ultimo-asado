@@ -1,6 +1,4 @@
 using Assets.Scripts.GameManager;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -46,9 +44,7 @@ public class Pariilla : MonoBehaviour
     public void PrenderFuego()
     {
         Fire.SetActive(true);       
-        luzManager.DesactivarLuces();
-        
-
+        luzManager.DesactivarLuces();    
     }
 
     public void CambioEscena()
