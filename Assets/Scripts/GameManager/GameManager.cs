@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Character;
+using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.GameManager
@@ -6,8 +8,10 @@ namespace Assets.Scripts.GameManager
     public class GameManager : MonoBehaviour
     {
         private static GameManager gameManager;
+        public Action<EnemyStatesEnum> OnChangeEnemyState;
+        public Action<GameObject> OnPickUpObject;
+        public Action OnPlayEnemyScream;
         public static GameManager GetGameManager() => gameManager; 
-        private int scene;
 
         private void Awake()
         {
@@ -18,31 +22,34 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 0;
-            //GetScene( 3);
             DontDestroyOnLoad(this);
         }
         public void NextScene()
         {
-            scene++;
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void GoToScene(int scene)
         {
             SceneManager.LoadScene(scene);
-        }  
+        }
 
         public int GetSceneNumber()
         {
-            return scene;
+            return SceneManager.GetActiveScene().buildIndex;
         }
-        //public void GetScene( int _scenenumber) { 
-        //    if(3 == _scenenumber)
-        //    {
-        //        JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
-        //        jody.IsDead();
-        //    }
-        //}
+
+        public void ChangeEnemyState(EnemyStatesEnum newState)
+        {
+            OnChangeEnemyState?.Invoke(newState);
+        }  
+        public void PickUpObject(GameObject gameObject)
+        {
+            OnPickUpObject?.Invoke(gameObject);
+        }    
+        public void PlayEnemyScream()
+        {
+            OnPlayEnemyScream?.Invoke();
+        }
     }
 }

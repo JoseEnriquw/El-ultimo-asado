@@ -14927,21 +14927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5321202049172092780, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
-        type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321202049172092780, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321202049172092780, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7852913620844116187, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
         type: 3}
       propertyPath: m_Pivot.x
