@@ -968,6 +968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2035557958982071988}
+  - component: {fileID: -5694258199068606700}
   m_Layer: 0
   m_Name: fosforos
   m_TagString: Untagged
@@ -986,8 +987,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.93, y: 0.099999666, z: 27.79}
-  m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7156797301017086423}
   - {fileID: 5115008320677290171}
@@ -4238,5 +4239,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4662314139073222208, guid: 62289c9ae6649994d937a5f4931e7368,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5694258199068606700}
   m_SourcePrefab: {fileID: 100100000, guid: 62289c9ae6649994d937a5f4931e7368, type: 3}
+--- !u!65 &-5694258199068606700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689995007301790734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.422941, y: 4.277441, z: 6.5033174}
+  m_Center: {x: 0.015262764, y: 1.63872, z: -2.751658}

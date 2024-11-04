@@ -3698,15 +3698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GuiOn: 0
+  guiOn: 0
   text: TRAEME LENIA WACHO
-  BoxSize:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 200
-    height: 100
-  customSkin: {fileID: 11400000, guid: e6d3fce0bc6a1814494a91416b4fa72c, type: 2}
+  contadorText: {fileID: 0}
 --- !u!65 &434039254
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10511,6 +10505,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a93f80d252523a14d9206681c7713ce8, type: 3}
+--- !u!1001 &1460368181
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2410014397917995454, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_Name
+      value: barrelgrill2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2036.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -38.608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1812.619
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.86308485
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000005610162
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000001686669
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.505059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042682925084244740, guid: f34e2f3448300c34e8785b9f58117e1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f34e2f3448300c34e8785b9f58117e1f, type: 3}
 --- !u!1 &1465302443
 GameObject:
   m_ObjectHideFlags: 0
@@ -16479,3 +16541,4 @@ SceneRoots:
   - {fileID: 890931026836752912}
   - {fileID: 1648037905842651288}
   - {fileID: 1147850299737584540}
+  - {fileID: 1460368181}

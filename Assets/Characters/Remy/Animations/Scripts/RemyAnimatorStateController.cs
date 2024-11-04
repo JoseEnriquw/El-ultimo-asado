@@ -17,7 +17,7 @@ public class RemyAnimatorStateController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     // para aplicar movimiento en bucle
-    [SerializeField] private bool isLoop;
+    [SerializeField] private bool isLoop = true;
 
     // para aplicar movimiento aleatorio entre los waypoints
     [SerializeField] private bool isRandom;
@@ -32,6 +32,11 @@ public class RemyAnimatorStateController : MonoBehaviour
     // el animator para administrar la maquina de estados
     Animator animator;
     Rigidbody rb;
+
+    // prefabs
+    [SerializeField] private List<GameObject> prefabList;
+    [SerializeField] private List<Transform> prefabTransoformList;
+    [SerializeField] private int loopCount = 0;
 
 
     // Start is called before the first frame update
@@ -162,6 +167,21 @@ public class RemyAnimatorStateController : MonoBehaviour
             wayPointIndex++;
             Invoke("IsWaiting", 5.0f);
             Debug.Log("should wait here...");
+        }
+        if (other.CompareTag("Instantiate"))
+        {
+
+            if (loopCount <= 3)
+            {
+                Debug.Log("deberia instanciar");
+                Instantiate(prefabList[loopCount], prefabTransoformList[loopCount].transform.position, Quaternion.identity);
+                loopCount++;
+            }
+            else
+            {
+                isLoop = false;
+            }
+
         }
     }
 
