@@ -37,7 +37,7 @@ public class PickObject : MonoBehaviour
         healthKitCounter = FindObjectOfType<HealthKitCounter>();
         _playsound = FindObjectOfType<PlayerSounds>();
         _josh = FindObjectOfType<JoshAnimatorControllerState>();
-        _gamenager = FindObjectOfType<GameManager>();
+        //_gamenager = FindObjectOfType<GameManager>();
         countFuse = FindObjectOfType<CountFuse>();
     }
 
@@ -183,7 +183,8 @@ public class PickObject : MonoBehaviour
     private void HandleEndScene(GameObject otherObject)
     {
         if (ChangueScene)
-            _gamenager.NextScene();
+            GameManager.GetGameManager().NextScene();
+           // _gamenager.NextScene();
     }
 
     private void HandleAsado(GameObject otherObject)
@@ -412,16 +413,16 @@ public class PickObject : MonoBehaviour
     //    }
     //}
 
-    private void OnGUI()
-    {
-        if (ultimoreconocido)
-        {
-            _UI.SetActive(true);
-        }
-        else
-        {
-            _UI.SetActive(false);
-        }
-    }
+    //private void OnGUI()
+    //{
+    //    if (ultimoreconocido)
+    //    {
+    //        _UI.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        _UI.SetActive(false);
+    //    }
+    //}
     #endregion
 }

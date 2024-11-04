@@ -33,12 +33,16 @@ namespace Assets.Scripts.GameManager
             SceneManager.LoadScene(scene);
         }  
 
-        public void GetScene( int _scenenumber) { 
-            if(3 == _scenenumber)
-            {
-                JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
-                jody.IsDead();
-            }
+        public int GetSceneNumber()
+        {
+            return scene;
         }
+        //public void GetScene( int _scenenumber) { 
+        //    if(3 == _scenenumber)
+        //    {
+        //        JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
+        //        jody.IsDead();
+        //    }
+        //}
     }
 }
