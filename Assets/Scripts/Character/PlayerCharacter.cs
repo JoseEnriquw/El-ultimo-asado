@@ -11,6 +11,7 @@ namespace Assets.Scripts.Character
         [SerializeField] private float walkSpeed = 2f;
         [SerializeField] private float runSpeed = 5f;
         [SerializeField] private float mouseSensitivity = 100f;
+        private bool hasKeyCar;
 
         private CharacterController characterController;
         private Animator animator;
@@ -27,12 +28,14 @@ namespace Assets.Scripts.Character
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
             firstPersonCamera = GetComponentInChildren<CinemachineVirtualCamera>();
+            hasKeyCar = false;
         }
 
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            GameManager.GameManager.GetGameManager().OnPickUpObject += PickUpObject;
         }
 
         private void Update()
@@ -107,6 +110,21 @@ namespace Assets.Scripts.Character
             animator.SetFloat("Speed", speedPercent, 0.1f, Time.deltaTime);
         }
 
+        private void PickUpObject(GameObject gameObject)
+        {
+            if (gameObject.name == "KeyCar")
+            {
+                var trigger = GameObject.Find("TriggerPursueEnemy");
+                var collider=trigger.GetComponent<Collider>();
+                collider.isTrigger = true;
+
+                var textComponent = GetComponent<Text>();
+                var text = "Busca el auto y cuidado con el asesino!!";
+                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                hasKeyCar = true;
+            }
+        }
+
         private void OnTriggerExit(Collider other)
         {
             switch (other.gameObject.tag)
@@ -120,11 +138,21 @@ namespace Assets.Scripts.Character
                 case Tags.PursueEnemy:
                     GameManager.GameManager.GetGameManager().ChangeEnemyState(EnemyStatesEnum.Pursue);
                     other.isTrigger = false;
+                    GameManager.GameManager.GetGameManager().PlayEnemyScream();
                     break;
 
                 default:
                     break;
             }
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag(Tags.Car) && hasKeyCar)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                GameManager.GameManager.GetGameManager().NextScene();
+            }            
         }
 
     }

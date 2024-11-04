@@ -244,6 +244,7 @@ public class PickObject : MonoBehaviour
                 otherObject.transform.SetParent(hanPoint.transform);
                 pickedObject = otherObject;
                 IsPickedObject = true;
+                GameManager.GetGameManager().PickUpObject(pickedObject);
             }
         }
         else

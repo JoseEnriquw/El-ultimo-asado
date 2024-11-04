@@ -28,6 +28,7 @@ namespace Assets.Scripts.Character
                 audioSource.Play();
             }
             GameManager.GameManager.GetGameManager().OnChangeEnemyState += ChangeState;
+            GameManager.GameManager.GetGameManager().OnPlayEnemyScream += PlayScream;
         }
 
         private void Update()
@@ -80,6 +81,11 @@ namespace Assets.Scripts.Character
         private void ChangeState(EnemyStatesEnum newStates)
         {
             currentState = newStates;
+        }    
+        
+        private void PlayScream()
+        {
+            audioSource.Play();
         }
     }
 }

@@ -9,8 +9,9 @@ namespace Assets.Scripts.GameManager
     {
         private static GameManager gameManager;
         public Action<EnemyStatesEnum> OnChangeEnemyState;
+        public Action<GameObject> OnPickUpObject;
+        public Action OnPlayEnemyScream;
         public static GameManager GetGameManager() => gameManager; 
-        private int scene;
 
         private void Awake()
         {
@@ -21,13 +22,11 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 3;
             DontDestroyOnLoad(this);
         }
         public void NextScene()
         {
-            scene++;
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void GoToScene(int scene)
@@ -37,12 +36,20 @@ namespace Assets.Scripts.GameManager
 
         public int GetSceneNumber()
         {
-            return scene;
+            return SceneManager.GetActiveScene().buildIndex;
         }
 
         public void ChangeEnemyState(EnemyStatesEnum newState)
         {
             OnChangeEnemyState?.Invoke(newState);
+        }  
+        public void PickUpObject(GameObject gameObject)
+        {
+            OnPickUpObject?.Invoke(gameObject);
+        }    
+        public void PlayEnemyScream()
+        {
+            OnPlayEnemyScream?.Invoke();
         }
     }
 }

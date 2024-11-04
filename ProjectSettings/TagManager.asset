@@ -26,6 +26,7 @@ TagManager:
   - Diario
   - Fuego
   - Parrilla
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,7 @@ TagManager:
   - Cajones
   - MedicalKit
   - Light
-  - 
+  - Car
   - 
   - 
   - 

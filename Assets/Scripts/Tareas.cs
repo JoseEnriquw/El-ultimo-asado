@@ -16,18 +16,18 @@ public class Tareas : MonoBehaviour
         var text="";
         switch (scenenumber)
         {
-            case 0: text = "Hablar con Remy";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
-                break;
-            case 1:
-                text = "Buscar la linterna";
+            case 1: text = "Hablar con Remy";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 break;
             case 2:
-                text = "Buscar el botiquin";
+                text = "Buscar la linterna";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 break;
             case 3:
+                text = "Buscar el botiquin";
+                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                break;
+            case 4:
                 text = "Encuentra la llave y escapa";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 break;
