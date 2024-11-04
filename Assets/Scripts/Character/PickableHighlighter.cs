@@ -23,7 +23,10 @@ namespace Assets.Scripts.Character
 
                 if (hitObject.CompareTag(Tags.ObjetoPickeable) 
                     || hitObject.CompareTag(Tags.Linterna)
-                    || hitObject.CompareTag(Tags.PanelElectrico))
+                    || hitObject.CompareTag(Tags.PanelElectrico)
+                    || hitObject.CompareTag(Tags.Car)
+                    || hitObject.CompareTag(Tags.Car)
+                    )
                 {
                     // Si es un nuevo objeto, actualiza el resaltado
                     if (currentObject != hitObject)

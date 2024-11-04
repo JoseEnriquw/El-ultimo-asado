@@ -23,9 +23,10 @@ public class Push : MonoBehaviour
 
         if (hit.gameObject.name == "kids_room_rack" && GameManager.GetGameManager().GetSceneNumber()==4)
         {
-            Text textComponent = body.GetComponent<Text>();
             var text = "Empujar con 'E'";
-            textComponent.UpdateTextBasedOnInteraction(true, text, false);
+            UIManager.GetUIManager().SetTarea(text);
+            //Text textComponent = body.GetComponent<Text>();
+            //textComponent.UpdateTextBasedOnInteraction(true, text, false);
             if (Input.GetKey(KeyCode.E))
             {
                 Vector3 pushDir = new(hit.moveDirection.x, 0, hit.moveDirection.z);

@@ -12,34 +12,28 @@ public class Tareas : MonoBehaviour
 
     private void AsingTask(int scenenumber)
     {
-        Text textComponent = this.GetComponent<Text>();
-        var text="";
+        string text;
         switch (scenenumber)
         {
             case 1: text = "Hablar con Remy";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
                 break;
             case 2:
                 text = "Buscar la linterna";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
                 break;
             case 3:
                 text = "Buscar el botiquin";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
                 break;
             case 4:
                 text = "Encuentra la llave y escapa";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea(text);
+                //textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 break;
 
             default:
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

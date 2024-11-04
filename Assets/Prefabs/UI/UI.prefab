@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76d0a68905bd844ca84c9c52d0172ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nombretxt: {fileID: 0}
+  Nombretxt: {fileID: 898895406776473890}
   NombreImg: {fileID: 899766031026014783}
   Billetera: {fileID: 0}
+  TareaTxt: {fileID: 5321202049172092780}
 --- !u!1 &4167697744729854231
 GameObject:
   m_ObjectHideFlags: 0

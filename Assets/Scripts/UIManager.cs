@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,9 +6,10 @@ public class UIManager : MonoBehaviour
 {
     static UIManager current;
 
-    [SerializeField] private TextMeshPro Nombretxt;
+    [SerializeField] private TextMeshProUGUI Nombretxt;
     [SerializeField] private Image NombreImg;
     [SerializeField] private Image Billetera;
+    [SerializeField] private TextMeshProUGUI TareaTxt;
 
     private void Awake()
     {
@@ -27,16 +26,25 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public static void UpdateNombre(string name)
+    public void UpdateNombre(string name)
     {
         if(current==null)
             return;
         current.Nombretxt.text = name;  
-    }
-    public static void UpdateNombreImg(Image img)
+    } 
+    
+    public void UpdateNombreImg(Image img)
     {
         if (current == null)
             return;
         current.NombreImg = img;
     }
+    public void SetTarea(string task)
+    {
+        if(current==null)
+            return;
+        current.TareaTxt.text = task;  
+    }
+
+    public static UIManager GetUIManager()=>current;
 }
