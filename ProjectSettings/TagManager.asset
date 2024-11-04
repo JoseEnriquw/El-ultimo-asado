@@ -18,6 +18,8 @@ TagManager:
   - EndScene
   - WaitOutHouseEnemy
   - PursueEnemy
+  - Linterna
+  - PanelElectrico
   layers:
   - Default
   - TransparentFX

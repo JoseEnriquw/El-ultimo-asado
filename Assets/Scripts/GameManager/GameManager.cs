@@ -21,7 +21,7 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 0;
+            scene = 3;
             DontDestroyOnLoad(this);
         }
         public void NextScene()
@@ -33,14 +33,11 @@ namespace Assets.Scripts.GameManager
         public void GoToScene(int scene)
         {
             SceneManager.LoadScene(scene);
-        }  
+        }
 
-        public void GetScene( int _scenenumber) { 
-            if(3 == _scenenumber)
-            {
-                JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
-                jody.IsDead();
-            }
+        public int GetSceneNumber()
+        {
+            return scene;
         }
 
         public void ChangeEnemyState(EnemyStatesEnum newState)

@@ -16,29 +16,38 @@ public class PickObject : MonoBehaviour
     [SerializeField] private GameObject _UI;
     bool ultimoreconocido = false;
     private HealthKitCounter healthKitCounter;
+    private CountFuse countFuse;
     private bool Busquedabotiquin = false;
-    bool Completed = false;
+    private bool BusquedaFusible = false;
+    bool MedicalKitCompleted = false;
+    bool ElectricPanelCompleted = false;
     private int ContadorMedikalkit = 0;
+    private int ContadorFuse = 0;
     PlayerSounds _playsound;
     JoshAnimatorControllerState _josh;
     public bool ChangueScene = false;
     GameManager _gamenager;
     private int maxBotiquines =5;
+    private int maxFuse = 2;
 
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
         maskCajones = LayerMask.GetMask("Cajones");
+
         healthKitCounter = FindObjectOfType<HealthKitCounter>();
         _playsound = FindObjectOfType<PlayerSounds>();
         _josh = FindObjectOfType<JoshAnimatorControllerState>();
-        _gamenager = FindObjectOfType<GameManager>();
+        //_gamenager = FindObjectOfType<GameManager>();
+        countFuse = FindObjectOfType<CountFuse>();
     }
 
     void Update()
     {
         pjtransform = gameObject.GetComponentInParent<Transform>();
-        Completed = healthKitCounter.Completed;
+
+        MedicalKitCompleted = healthKitCounter != null ? healthKitCounter.Completed : true;
+        ElectricPanelCompleted = countFuse.Completed;
         if (pickedObject != null)
         {
             if (Input.GetKey(KeyCode.R) && pickedObject.CompareTag("ObjetoPickeable"))
@@ -54,7 +63,7 @@ public class PickObject : MonoBehaviour
             }
 
             CheckRaycastHit();
-            //if (Completed && pickedObject.CompareTag("MedicalKit")) ApplyMedicalKit();
+            //if (MedicalKitCompleted && pickedObject.CompareTag("MedicalKit")) ApplyMedicalKit();
         }
 
     }
@@ -100,6 +109,7 @@ public class PickObject : MonoBehaviour
 
         GameObject otherObject = other.gameObject;
         string tag = otherObject.tag;
+        Debug.Log(tag);
         switch (tag)
         {
             case "ObjetoPickeable":
@@ -115,10 +125,13 @@ public class PickObject : MonoBehaviour
                 HandleCuadros(otherObject);
                 break;
             case "Linterna":
-                HandleAsado(otherObject);
+                HandleLinterna(otherObject);
                 break;
             case "Asado":
                 HandleAsado(otherObject);
+                break;
+            case "PanelElectrico":
+                HandleElectricPanel(otherObject);
                 break;
             case "EndScene":
                 HandleEndScene(otherObject);
@@ -128,15 +141,69 @@ public class PickObject : MonoBehaviour
         }
     }
 
+    private void HandleElectricPanel(GameObject otherObject)
+    {
+        Text textComponent = otherObject.GetComponent<Text>();
+        InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
+
+        if (!BusquedaFusible && interactable != null && interactable.interactionID == 20 && !ElectricPanelCompleted && _inventory.hasLinterna)
+        {
+            BusquedaFusible = true;
+            countFuse.IncrementarContador(true);
+        }
+        if (BusquedaFusible && interactable != null && interactable.interactionID == 21 && ElectricPanelCompleted && _inventory.hasLinterna)
+        {
+            if (ContadorFuse < 2)
+            {               
+                var text = $"Colocar Fusibles {ContadorFuse}/{maxFuse}";
+                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                ApplyInventory(otherObject);
+            }
+            else
+            {
+
+                textComponent.UpdateTextBasedOnInteraction(true, "Ve a la cocina", true);
+                ChangueScene = true;
+            }
+
+        }
+        else if (BusquedaFusible && !ElectricPanelCompleted && _inventory.hasLinterna)
+        {
+            ultimoreconocido = true;
+            if (Input.GetKey(KeyCode.E))
+            {
+                _playsound.PlayPickObject();
+                GameObject Itempickedup = otherObject.gameObject;
+                ItemInventory item = otherObject.GetComponent<ItemInventory>();
+                _inventory.AddItem(otherObject, item);
+                countFuse.IncrementarContador();
+
+            }
+        }
+    }
+
     private void HandleEndScene(GameObject otherObject)
     {
         if (ChangueScene)
-            _gamenager.NextScene();
+            GameManager.GetGameManager().NextScene();
+           // _gamenager.NextScene();
     }
 
     private void HandleAsado(GameObject otherObject)
     {
         
+    }
+    private void HandleLinterna(GameObject otherObject)
+    {
+        if (Input.GetKey(KeyCode.E) )
+        {
+            Text textComponent = otherObject.GetComponent<Text>();
+            _inventory.Linterna.SetActive(true);
+            Destroy(otherObject);
+            _inventory.hasLinterna = true;
+            var text = "Busca el Panel de Luz";
+            textComponent.UpdateTextBasedOnInteraction(true, text, false);
+        }
     }
 
     private void HandleObjetoPickeable(GameObject otherObject)
@@ -179,19 +246,19 @@ public class PickObject : MonoBehaviour
         Text textComponent = otherObject.GetComponent<Text>();
         InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
 
-        if (!Busquedabotiquin && interactable != null && interactable.interactionID == 11 && !Completed)
+        if (!Busquedabotiquin && interactable != null && interactable.interactionID == 11 && !MedicalKitCompleted)
         {
             Busquedabotiquin = true;
             healthKitCounter.IncrementarContador(true);
         }
-        if (Busquedabotiquin && interactable != null && interactable.interactionID == 10 && Completed)
+        if (Busquedabotiquin && interactable != null && interactable.interactionID == 10 && MedicalKitCompleted)
         {
             if (ContadorMedikalkit < 5)
             {
                 _josh.ForceResumeMovement();
                 var text = $"Aplicar Primeros Auxilios {ContadorMedikalkit}/{maxBotiquines}";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
-                ApplyMedicalKit(otherObject);
+                ApplyInventory(otherObject);
             }
             else
             {
@@ -201,7 +268,7 @@ public class PickObject : MonoBehaviour
             }
 
         }
-        else if (Busquedabotiquin && !Completed)
+        else if (Busquedabotiquin && !MedicalKitCompleted)
         {
             ultimoreconocido = true;
             if (Input.GetKey(KeyCode.E))
@@ -215,7 +282,7 @@ public class PickObject : MonoBehaviour
             }
         }
     }
-    private void ApplyMedicalKit(GameObject otherObject)
+    private void ApplyInventory(GameObject otherObject)
     {
         if (pickedObject != null)
         {
@@ -234,6 +301,7 @@ public class PickObject : MonoBehaviour
                     _playsound.PlayDropObject();
                     DestroyPickedObject();
                     ContadorMedikalkit++;
+                    ContadorFuse++; //ver de arreglar despues por escena
                 }
                 else
                 {
@@ -347,16 +415,16 @@ public class PickObject : MonoBehaviour
     //    }
     //}
 
-    private void OnGUI()
-    {
-        if (ultimoreconocido)
-        {
-            _UI.SetActive(true);
-        }
-        else
-        {
-            _UI.SetActive(false);
-        }
-    }
+    //private void OnGUI()
+    //{
+    //    if (ultimoreconocido)
+    //    {
+    //        _UI.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        _UI.SetActive(false);
+    //    }
+    //}
     #endregion
 }

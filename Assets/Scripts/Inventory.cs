@@ -8,10 +8,12 @@ public class Inventory : MonoBehaviour
 {
     private bool inventoryEnabled;
     [SerializeField] private GameObject inventory;
+    public GameObject Linterna;
     private int allSlots;
     private int enabledSlots;
     [SerializeField] private GameObject[] slot;
     [SerializeField] private GameObject SlotHandler;
+    public bool hasLinterna = false;
 
     void Start()
     {
