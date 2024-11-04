@@ -18,7 +18,7 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 1;
+            scene = 0;
             //GetScene( 3);
             DontDestroyOnLoad(this);
         }

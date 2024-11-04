@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class RemyAnimatorStateController : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class RemyAnimatorStateController : MonoBehaviour
     [SerializeField] private List<GameObject> prefabList;
     [SerializeField] private List<Transform> prefabTransoformList;
     [SerializeField] private int loopCount = 0;
-
+    private bool Interaciono = false;
 
     // Start is called before the first frame update
     void Start()
@@ -170,7 +171,6 @@ public class RemyAnimatorStateController : MonoBehaviour
         }
         if (other.CompareTag("Instantiate"))
         {
-
             if (loopCount <= 3)
             {
                 Debug.Log("deberia instanciar");
@@ -182,12 +182,25 @@ public class RemyAnimatorStateController : MonoBehaviour
             {
                 
             }
-
         }
-    }
-
+        if (other.CompareTag("Player") && !Interaciono)
+        {
+            Text textComponent = this.GetComponent<Text>();
+            var text = "Remy va a poner la mesa";
+            textComponent.UpdateTextBasedOnInteraction(true, text, false);
+            isWaiting = false;
+            Interaciono=true;
+            Invoke("Mensaje", 3.0f);
+        }
+    }   
     public void IsWaiting()
     {
         isWaiting = false;
+    }
+     private void Mensaje()
+    {
+        Text textComponent = this.GetComponent<Text>();        
+        var text = "Prepara la parilla";
+        textComponent.UpdateTextBasedOnInteraction(true, text, false);
     }
 }
