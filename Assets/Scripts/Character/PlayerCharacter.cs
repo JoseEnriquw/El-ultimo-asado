@@ -100,21 +100,32 @@ namespace Assets.Scripts.Character
         private void HandleAnimations()
         {
             // Calcular la velocidad horizontal
-            Vector3 horizontalVelocity = new Vector3(characterController.velocity.x, 0, characterController.velocity.z);
+            Vector3 horizontalVelocity = new(characterController.velocity.x, 0, characterController.velocity.z);
             float speedPercent = horizontalVelocity.magnitude / runSpeed;
 
             // Actualizar el parámetro 'Speed' en el Animator
             animator.SetFloat("Speed", speedPercent, 0.1f, Time.deltaTime);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.tag == Tags.CambioEscena)
+            switch (other.gameObject.tag)
             {
-                GameManager.GameManager.GetGameManager().NextScene();
+                case Tags.WaitOutHouseEnemy:
+
+                    GameManager.GameManager.GetGameManager().ChangeEnemyState(EnemyStatesEnum.WaitOutHouse);
+                    other.isTrigger = false;
+                    break;
+
+                case Tags.PursueEnemy:
+                    GameManager.GameManager.GetGameManager().ChangeEnemyState(EnemyStatesEnum.Pursue);
+                    other.isTrigger = false;
+                    break;
+
+                default:
+                    break;
             }
         }
-
 
     }
 }

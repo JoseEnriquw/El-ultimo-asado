@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Character;
+using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.GameManager
@@ -6,6 +8,7 @@ namespace Assets.Scripts.GameManager
     public class GameManager : MonoBehaviour
     {
         private static GameManager gameManager;
+        public Action<EnemyStatesEnum> OnChangeEnemyState;
         public static GameManager GetGameManager() => gameManager; 
         private int scene;
 
@@ -18,8 +21,7 @@ namespace Assets.Scripts.GameManager
             }
             
             gameManager = this;
-            scene = 2;
-            //GetScene( 3);
+            scene = 0;
             DontDestroyOnLoad(this);
         }
         public void NextScene()
@@ -39,6 +41,11 @@ namespace Assets.Scripts.GameManager
                 JodyAnimatorControllerState jody = FindObjectOfType<JodyAnimatorControllerState>();
                 jody.IsDead();
             }
+        }
+
+        public void ChangeEnemyState(EnemyStatesEnum newState)
+        {
+            OnChangeEnemyState?.Invoke(newState);
         }
     }
 }

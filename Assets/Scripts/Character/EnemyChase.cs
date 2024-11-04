@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Character
 {
-    enum EnemyStatesEnum { Pursue,WaitOutHouse,Stay }
+    public enum EnemyStatesEnum { Pursue,WaitOutHouse,Stay }
     public class EnemyChase : MonoBehaviour
     {
         private Transform destiny;
@@ -27,6 +27,7 @@ namespace Assets.Scripts.Character
                 audioSource.clip = chaseSound;
                 audioSource.Play();
             }
+            GameManager.GameManager.GetGameManager().OnChangeEnemyState += ChangeState;
         }
 
         private void Update()
@@ -74,6 +75,11 @@ namespace Assets.Scripts.Character
             {
                 animator.SetBool("isRunning", false);
             }
+        }
+
+        private void ChangeState(EnemyStatesEnum newStates)
+        {
+            currentState = newStates;
         }
     }
 }

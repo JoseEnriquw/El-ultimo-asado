@@ -16,6 +16,8 @@ TagManager:
   - WaitTime
   - Die
   - EndScene
+  - WaitOutHouseEnemy
+  - PursueEnemy
   layers:
   - Default
   - TransparentFX
