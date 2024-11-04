@@ -118,9 +118,7 @@ namespace Assets.Scripts.Character
                 var collider=trigger.GetComponent<Collider>();
                 collider.isTrigger = true;
 
-                var textComponent = GetComponent<Text>();
-                var text = "Busca el auto y cuidado con el asesino!!";
-                textComponent.UpdateTextBasedOnInteraction(true, text, false);
+                UIManager.GetUIManager().SetTarea("Busca el auto, está a la izquierda bajo un arbol!!");
                 hasKeyCar = true;
             }
         }
