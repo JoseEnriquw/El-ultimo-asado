@@ -29,7 +29,7 @@ public class Pariilla : MonoBehaviour
         {
             contadorParrilla++;
             ActualizarContadorText();
-            if (contadorParrilla == 1)
+            if (contadorParrilla == 5)
             {
                 Completed = true;
                 ActualizarContadorText();
@@ -40,7 +40,7 @@ public class Pariilla : MonoBehaviour
     }
     private void ActualizarContadorText()
     {
-        contadorText.text = Completed ? "Habla con Josh" : $"Arma la Parrilla  {contadorParrilla}/{maxParrilla}";
+        contadorText.text = Completed ? "Habla con Josh" : $"Arma la Parrilla  {contadorParrilla}/{maxParrilla} E/R";
     }
 
     public void PrenderFuego()

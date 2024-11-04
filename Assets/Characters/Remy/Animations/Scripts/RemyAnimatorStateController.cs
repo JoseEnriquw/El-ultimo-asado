@@ -200,7 +200,7 @@ public class RemyAnimatorStateController : MonoBehaviour
      private void Mensaje()
     {
         Text textComponent = this.GetComponent<Text>();        
-        var text = "Prepara la parilla";
+        var text = "Prepara la parilla, leña, Diario, Fosforos";
         textComponent.UpdateTextBasedOnInteraction(true, text, false);
     }
 }
