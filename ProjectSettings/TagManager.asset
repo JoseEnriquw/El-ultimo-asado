@@ -18,6 +18,11 @@ TagManager:
   - EndScene
   - Linterna
   - PanelElectrico
+  - Instantiate
+  - Lenia
+  - Fosforos
+  - Diario
+  - Fuego
   layers:
   - Default
   - TransparentFX
