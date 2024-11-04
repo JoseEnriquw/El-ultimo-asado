@@ -7,6 +7,7 @@ public class PickObject : MonoBehaviour
 {
     [SerializeField] private GameObject hanPoint;
     private GameObject pickedObject = null;
+    public bool IsPickedObject =false;
     Inventory _inventory;
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private float checkDistance;
@@ -29,6 +30,9 @@ public class PickObject : MonoBehaviour
     GameManager _gamenager;
     private int maxBotiquines =5;
     private int maxFuse = 2;
+    Pariilla _parrilla;
+    public String hasTaginhand = "";
+     
 
     private void Start()
     {
@@ -39,6 +43,7 @@ public class PickObject : MonoBehaviour
         _josh = FindObjectOfType<JoshAnimatorControllerState>();
         //_gamenager = FindObjectOfType<GameManager>();
         countFuse = FindObjectOfType<CountFuse>();
+        _parrilla= FindObjectOfType<Pariilla>();
     }
 
     void Update()
@@ -48,22 +53,28 @@ public class PickObject : MonoBehaviour
         ElectricPanelCompleted = countFuse.Completed;
         if (pickedObject != null)
         {
+            GameObject otherObject = pickedObject.gameObject;             
+            hasTaginhand = otherObject.tag;
             if (Input.GetKey(KeyCode.R) && pickedObject.CompareTag("ObjetoPickeable"))
             {
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
                 pickedObject.transform.SetParent(null);
                 pickedObject = null;
+                IsPickedObject = false;
             }
             if (Input.GetKeyDown(KeyCode.E) && pickedObject.CompareTag("ItemInventory"))
             {
                 UnequipItem();
-            }
+            }           
 
             CheckRaycastHit();
             //if (MedicalKitCompleted && pickedObject.CompareTag("MedicalKit")) ApplyMedicalKit();
         }
-
+        else {
+            hasTaginhand = "";
+        }
+        
     }
     #region ACCIONES CON PCKEDOBJECT
     private void CheckRaycastHit()
@@ -107,7 +118,7 @@ public class PickObject : MonoBehaviour
 
         GameObject otherObject = other.gameObject;
         string tag = otherObject.tag;
-        Debug.Log(tag);
+       //ebug.Log(tag);
         switch (tag)
         {
             case "ObjetoPickeable":
@@ -125,7 +136,7 @@ public class PickObject : MonoBehaviour
             case "Linterna":
                 HandleLinterna(otherObject);
                 break;
-            case "Asado":
+            case "Parrilla":
                 HandleAsado(otherObject);
                 break;
             case "PanelElectrico":
@@ -189,7 +200,19 @@ public class PickObject : MonoBehaviour
 
     private void HandleAsado(GameObject otherObject)
     {
-        
+        if (pickedObject != null)
+        {
+            if (Input.GetKey(KeyCode.R)  && !_parrilla.Completed)
+            {
+                pickedObject.GetComponent<Rigidbody>().useGravity = true;
+                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+                pickedObject.transform.SetParent(null);
+                pickedObject = null;
+                IsPickedObject = false;
+                Destroy(pickedObject);
+                _parrilla.IncrementarContador();
+            }
+        }
     }
     private void HandleLinterna(GameObject otherObject)
     {
@@ -218,6 +241,7 @@ public class PickObject : MonoBehaviour
                 otherObject.transform.position = hanPoint.transform.position;
                 otherObject.transform.SetParent(hanPoint.transform);
                 pickedObject = otherObject;
+                IsPickedObject = true;
             }
         }
         else
@@ -362,6 +386,7 @@ public class PickObject : MonoBehaviour
         pickedObject.SetActive(false);
         pickedObject.transform.SetParent(null);
         pickedObject = null;
+        IsPickedObject = false;
 
         //pickedObject.GetComponent<Rigidbody>().useGravity = true;
         //pickedObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -394,6 +419,7 @@ public class PickObject : MonoBehaviour
             pickedObject.SetActive(false);
             pickedObject.transform.SetParent(null);
             pickedObject = null;
+            IsPickedObject = false;
         }
     }
     #endregion

@@ -19,7 +19,7 @@ public class Tareas : MonoBehaviour
         var text="";
         switch (scenenumber)
         {
-            case 0: text = "Buscar leña, fosforos y carbon";
+            case 0: text = "Hablar con Remy";
                 textComponent.UpdateTextBasedOnInteraction(true, text, false);
                 break;
             case 1:
