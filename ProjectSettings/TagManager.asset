@@ -16,6 +16,8 @@ TagManager:
   - WaitTime
   - Die
   - EndScene
+  - WaitOutHouseEnemy
+  - PursueEnemy
   - Linterna
   - PanelElectrico
   - Instantiate
@@ -24,6 +26,7 @@ TagManager:
   - Diario
   - Fuego
   - Parrilla
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -40,7 +43,7 @@ TagManager:
   - Cajones
   - MedicalKit
   - Light
-  - 
+  - Car
   - 
   - 
   - 

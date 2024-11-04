@@ -38,6 +38,7 @@ public class PickObject : MonoBehaviour
     {
         _inventory = FindObjectOfType<Inventory>();
         maskCajones = LayerMask.GetMask("Cajones");
+
         healthKitCounter = FindObjectOfType<HealthKitCounter>();
         _playsound = FindObjectOfType<PlayerSounds>();
         _josh = FindObjectOfType<JoshAnimatorControllerState>();
@@ -49,7 +50,8 @@ public class PickObject : MonoBehaviour
     void Update()
     {
         pjtransform = gameObject.GetComponentInParent<Transform>();
-        MedicalKitCompleted = healthKitCounter.Completed;
+
+        MedicalKitCompleted = healthKitCounter != null ? healthKitCounter.Completed : true;
         ElectricPanelCompleted = countFuse.Completed;
         if (pickedObject != null)
         {
@@ -242,6 +244,7 @@ public class PickObject : MonoBehaviour
                 otherObject.transform.SetParent(hanPoint.transform);
                 pickedObject = otherObject;
                 IsPickedObject = true;
+                GameManager.GetGameManager().PickUpObject(pickedObject);
             }
         }
         else
