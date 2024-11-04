@@ -176,10 +176,11 @@ public class RemyAnimatorStateController : MonoBehaviour
                 Debug.Log("deberia instanciar");
                 Instantiate(prefabList[loopCount], prefabTransoformList[loopCount].transform.position, Quaternion.identity);
                 loopCount++;
+                if(loopCount == 3) { isLoop = false; }
             }
             else
             {
-                isLoop = false;
+                
             }
 
         }
