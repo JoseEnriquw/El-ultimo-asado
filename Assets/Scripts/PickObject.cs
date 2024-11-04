@@ -174,7 +174,6 @@ public class PickObject : MonoBehaviour
             }
             else
             {
-
                 textComponent.UpdateTextBasedOnInteraction(true, "Ve a la cocina", true);
                 triggerJodyAnimation.Activate();
                 ChangueScene = true;
