@@ -26,5 +26,9 @@ public class Push : MonoBehaviour
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x,0,hit.moveDirection.z); //creamos dirección
         body.velocity = pushDir * pushPower / targetMass;
+
+        Text textComponent = body.GetComponent<Text>();
+        var text = "Empujar";
+        textComponent.UpdateTextBasedOnInteraction(true, text, false);
     }
 }
