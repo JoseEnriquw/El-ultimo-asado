@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18321347, g: 0.2268472, b: 0.2947251, a: 1}
+  m_IndirectSpecularColor: {r: 0.1832139, g: 0.2268478, b: 0.29472634, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,8 +237,8 @@ MonoBehaviour:
   player: {fileID: 1530350833}
   waitOutHouse: {fileID: 1593785928}
   speed: 3
-  stopDistance: 5
-  chaseSound: {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
+  stopDistance: 3
+  chaseSound: {fileID: 8300000, guid: 35623b8e08f1ff14a93b3ad5030fd663, type: 3}
   currentState: 0
 --- !u!136 &5475093
 CapsuleCollider:
@@ -6775,8 +6775,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784916755}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000005826036, y: -0.62294275, z: -0.0000004785883, w: -0.7822675}
-  m_LocalPosition: {x: -229.59631, y: -14.537999, z: 97.66421}
+  m_LocalRotation: {x: -0.016505599, y: 0.959683, z: -0.05764836, w: -0.2746139}
+  m_LocalPosition: {x: -220.08293, y: -17.914255, z: 100.85814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12219,37 +12219,37 @@ PrefabInstance:
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -229.74
+      value: -219.9391
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.115
+      value: -19.461
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 97.584
+      value: 101.17579
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7822675
+      value: -0.2746139
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000005826036
+      value: -0.016505599
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.62294275
+      value: 0.959683
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000004785883
+      value: -0.05764836
       objectReference: {fileID: 0}
     - target: {fileID: 6507194613947877925, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
@@ -14669,7 +14669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1936427267
 Transform:
   m_ObjectHideFlags: 0
@@ -15941,7 +15941,7 @@ GameObject:
   - component: {fileID: 2094357736}
   - component: {fileID: 2094357735}
   m_Layer: 0
-  m_Name: Regreso al Hogar
+  m_Name: AmbientSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

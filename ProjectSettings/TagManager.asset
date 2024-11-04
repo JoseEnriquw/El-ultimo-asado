@@ -25,6 +25,7 @@ TagManager:
   - Fosforos
   - Diario
   - Fuego
+  - Parrilla
   layers:
   - Default
   - TransparentFX

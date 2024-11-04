@@ -38,7 +38,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
     Animator animator;
     Rigidbody rb;
     PickObject _endscene;
-
+    LuzManager luzManager;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
 
         _gdeadScream = GetComponent<AudioSource>();
         _endscene = FindObjectOfType<PickObject>();
+        luzManager = FindObjectOfType<LuzManager>();
     }
 
     public void PlayScream()
@@ -182,6 +183,13 @@ public class JoshAnimatorControllerState : MonoBehaviour
         {
             isDead = true;
             PlayScream();
+        }
+        if (other.CompareTag("Player") && luzManager.Luzcortada)
+        {
+            Text textComponent = this.GetComponent<Text>();
+            var text = "El tablero esta fuera de la casa";
+            textComponent.UpdateTextBasedOnInteraction(true, text, false);
+            _endscene.ChangueScene = true;
         }
     }
 
