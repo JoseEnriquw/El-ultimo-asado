@@ -29,6 +29,7 @@ public class TriggerJodyAnimation : MonoBehaviour
         if (other.CompareTag("Player") && isActive)
         {
             jodyController.IsWaiting();
+            jodyController.Gritar();
         }
     }
 }
