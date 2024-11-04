@@ -32,6 +32,7 @@ public class PickObject : MonoBehaviour
     private int maxFuse = 2;
     Pariilla _parrilla;
     public String hasTaginhand = "";
+    private TriggerJodyAnimation triggerJodyAnimation;
      
 
     private void Start()
@@ -44,6 +45,7 @@ public class PickObject : MonoBehaviour
         //_gamenager = FindObjectOfType<GameManager>();
         countFuse = FindObjectOfType<CountFuse>();
         _parrilla= FindObjectOfType<Pariilla>();
+        triggerJodyAnimation= FindObjectOfType<TriggerJodyAnimation>();
     }
 
     void Update()
@@ -172,6 +174,7 @@ public class PickObject : MonoBehaviour
             {
 
                 textComponent.UpdateTextBasedOnInteraction(true, "Ve a la cocina", true);
+                triggerJodyAnimation.Activate();
                 ChangueScene = true;
             }
 

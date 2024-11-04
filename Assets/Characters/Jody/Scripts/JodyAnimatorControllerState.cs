@@ -34,6 +34,9 @@ public class JodyAnimatorControllerState : MonoBehaviour
     Animator animator;
     Rigidbody rb;
 
+    //[SerializeField] private GameObject scene2AnimationTrigger;
+    [SerializeField] private AudioSource gritoJody;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,7 @@ public class JodyAnimatorControllerState : MonoBehaviour
 
         // al comienzo esta vivo
         isDead = false;
+        isWaiting = true;
     }
 
     // Update is called once per frame
@@ -63,10 +67,6 @@ public class JodyAnimatorControllerState : MonoBehaviour
             {
                 WaypointMovement();
             }
-        }
-        if (isDead)
-        {
-            Animate();
         }
 
     }
@@ -166,6 +166,11 @@ public class JodyAnimatorControllerState : MonoBehaviour
             wayPointIndex++;
             Invoke("IsWaiting", 5.0f);
             Debug.Log("should wait here...");
+        }
+        if (other.CompareTag("Die"))
+        {
+            movingDifference = 0.0f;
+            isDead = true;
         }
     }
 
