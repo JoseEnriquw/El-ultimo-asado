@@ -2417,6 +2417,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49be92a6dd2e4a1469cf989dd07cd3ff, type: 3}
+--- !u!114 &165279650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 898895406776473890, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 165279649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &173289828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2678,27 +2690,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &202008554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1621495543269466739, guid: b10bb68d5c90130459080ca60514c35b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629875094}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &202008559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202008554}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: Encontrar tablero electrico
-  contadorText: {fileID: 313207419}
 --- !u!1 &228899205
 GameObject:
   m_ObjectHideFlags: 0
@@ -6829,7 +6820,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579048727}
-  - component: {fileID: 579048726}
   - component: {fileID: 579048725}
   m_Layer: 0
   m_Name: Tareas
@@ -6850,21 +6840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcf19940c9a16a4dab5e319f6ba5f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &579048726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579048724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: Busca la linterna
-  contadorText: {fileID: 313207419}
 --- !u!4 &579048727
 Transform:
   m_ObjectHideFlags: 0
@@ -10880,7 +10855,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9100193135708414085, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1196873361608298196, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5838322814494609567, guid: 111690d73c9728741bd54e3ad6278183,
@@ -13129,10 +13105,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1621495543269466739, guid: b10bb68d5c90130459080ca60514c35b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 202008559}
     - targetCorrespondingSourceObject: {fileID: 4872553475368704761, guid: b10bb68d5c90130459080ca60514c35b,
         type: 3}
       insertIndex: -1
@@ -13222,7 +13194,6 @@ GameObject:
   - component: {fileID: 1659688155}
   - component: {fileID: 1659688154}
   - component: {fileID: 1659688153}
-  - component: {fileID: 1659688152}
   m_Layer: 0
   m_Name: FinishEscene
   m_TagString: EndScene
@@ -13230,21 +13201,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1659688152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659688151}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: 
-  contadorText: {fileID: 313207419}
 --- !u!114 &1659688153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15401,15 +15357,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964377102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e76d0a68905bd844ca84c9c52d0172ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nombretxt: {fileID: 0}
+  Nombretxt: {fileID: 165279650}
   NombreImg: {fileID: 1932309010}
   Billetera: {fileID: 0}
-  TareaTxt: {fileID: 0}
+  TareaTxt: {fileID: 313207419}
 --- !u!114 &1964377104
 MonoBehaviour:
   m_ObjectHideFlags: 0

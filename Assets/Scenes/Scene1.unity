@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017066091, g: 0.000000025892327, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1037,7 +1037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &121832336
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133832090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
   m_Name: 
@@ -2974,6 +2974,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1385066165144249534, guid: 020bd5a170ae5344694b51488feb5c05,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385066165144249534, guid: 020bd5a170ae5344694b51488feb5c05,
+        type: 3}
       propertyPath: contadorText
       value: 
       objectReference: {fileID: 478677454}
@@ -3469,7 +3474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &500839458
 Transform:
   m_ObjectHideFlags: 0
@@ -4766,7 +4771,6 @@ GameObject:
   - component: {fileID: 702381345}
   - component: {fileID: 702381344}
   - component: {fileID: 702381343}
-  - component: {fileID: 702381342}
   - component: {fileID: 702381341}
   m_Layer: 6
   m_Name: colider con texto
@@ -4774,7 +4778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &702381341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4788,21 +4792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionID: 2
---- !u!114 &702381342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702381340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: TRAEME LENIA WACHO
-  contadorText: {fileID: 0}
 --- !u!65 &702381343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6527,7 +6516,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9100193135708414085, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7459,6 +7449,7 @@ MonoBehaviour:
   Nombretxt: {fileID: 0}
   NombreImg: {fileID: 781285493}
   Billetera: {fileID: 0}
+  TareaTxt: {fileID: 0}
 --- !u!114 &986116509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10191,7 +10182,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353917507}
-  - component: {fileID: 1353917506}
   - component: {fileID: 1353917505}
   m_Layer: 0
   m_Name: Tareas
@@ -10212,21 +10202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcf19940c9a16a4dab5e319f6ba5f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1353917506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353917504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: 
-  contadorText: {fileID: 478677454}
 --- !u!4 &1353917507
 Transform:
   m_ObjectHideFlags: 0
@@ -13226,7 +13201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1806891150
 Transform:
   m_ObjectHideFlags: 0
@@ -14045,7 +14020,6 @@ GameObject:
   - component: {fileID: 1906730500}
   - component: {fileID: 1906730499}
   - component: {fileID: 1906730498}
-  - component: {fileID: 1906730497}
   m_Layer: 0
   m_Name: FinishEscene
   m_TagString: EndScene
@@ -14053,21 +14027,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1906730497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906730496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202af8be9bdecd646b2db16922c5f21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiOn: 0
-  text: 
-  contadorText: {fileID: 478677454}
 --- !u!114 &1906730498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15292,6 +15251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3937924323905849807, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937924323905849807, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
       propertyPath: contadorText
       value: 
       objectReference: {fileID: 478677454}
@@ -15314,6 +15278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561428385743374833, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8561428385743374833, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
