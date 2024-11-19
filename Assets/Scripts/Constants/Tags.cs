@@ -11,5 +11,6 @@ namespace Assets.Scripts.Enums
         public const string Car = "Car";
         public const string PanelElectrico = "PanelElectrico";
         public const string Linterna = "Linterna";
+        public const string MedicalKit = "MedicalKit";
     }
 }

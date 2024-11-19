@@ -1,6 +1,4 @@
 using Assets.Scripts.GameManager;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -29,7 +27,7 @@ public class Pariilla : MonoBehaviour
         {
             contadorParrilla++;
             ActualizarContadorText();
-            if (contadorParrilla == 1)
+            if (contadorParrilla == 5)
             {
                 Completed = true;
                 ActualizarContadorText();
@@ -40,15 +38,18 @@ public class Pariilla : MonoBehaviour
     }
     private void ActualizarContadorText()
     {
-        contadorText.text = Completed ? "Habla con Josh" : $"Arma la Parrilla  {contadorParrilla}/{maxParrilla}";
+        contadorText.text = Completed ? "Habla con Josh" : $"Arma la Parrilla  {contadorParrilla}/{maxParrilla} E/R";
+        // Al cambiar de escena se pierde la referencia de a cual TextMeshProUGUI estamos enviando mensaje
+        // Esto es porque hay varios incluso en una misma escena.
+        //SOLUCIONADO!!! enviar contadorText.text a UIManager.
+        var text = contadorText.text;
+        UIManager.GetUIManager().SetTarea(text);
     }
 
     public void PrenderFuego()
     {
         Fire.SetActive(true);       
-        luzManager.DesactivarLuces();
-        
-
+        luzManager.DesactivarLuces();    
     }
 
     public void CambioEscena()

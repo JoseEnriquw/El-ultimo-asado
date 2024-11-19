@@ -185,11 +185,11 @@ public class RemyAnimatorStateController : MonoBehaviour
         }
         if (other.CompareTag("Player") && !Interaciono)
         {
-            Text textComponent = this.GetComponent<Text>();
-            var text = "Remy va a poner la mesa";
-            textComponent.UpdateTextBasedOnInteraction(true, text, false);
-            isWaiting = false;
             Interaciono=true;
+            var text = "Remy va a poner la mesa";
+            UIManager.GetUIManager().SetTarea(text);
+            Debug.Log(text);
+            isWaiting = false;
             Invoke("Mensaje", 3.0f);
         }
     }   
@@ -198,9 +198,8 @@ public class RemyAnimatorStateController : MonoBehaviour
         isWaiting = false;
     }
      private void Mensaje()
-    {
-        Text textComponent = this.GetComponent<Text>();        
-        var text = "Prepara la parilla";
-        textComponent.UpdateTextBasedOnInteraction(true, text, false);
+    {      
+        var text = "Prepara la parilla, leña, Diario, Fosforos";
+        UIManager.GetUIManager().SetTarea(text);
     }
 }

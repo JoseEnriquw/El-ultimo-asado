@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,14 +180,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jose Enrique Menendez
-
-    Marcelo Plleriti
-
-    Ramiro N. Roldan
-
-    Regina
-    Laurentino Goncalves'
+  m_text: "Jose Enrique Menendez\nMarcelo Juli\xE1n Pelleriti\nRamiro N. Roldan\nRegina
+    Laurentino Goncalves"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -300,8 +294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -171.8}
-  m_SizeDelta: {x: -462.7742, y: -470.18}
+  m_AnchoredPosition: {x: -27.189026, y: -241}
+  m_SizeDelta: {x: -1053.7003, y: -623.1256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367590195
 MonoBehaviour:
@@ -579,10 +573,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1049,8 +1043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.584412, y: 159.217}
-  m_SizeDelta: {x: -106.9807, y: -426.7343}
+  m_AnchoredPosition: {x: -27.189026, y: 201}
+  m_SizeDelta: {x: -513.677, y: -565.7758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109600085
 MonoBehaviour:
@@ -1125,8 +1119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15.8686, y: -15}
-  m_SizeDelta: {x: -230.1793, y: -333.6143}
+  m_AnchoredPosition: {x: -27.189026, y: -29.614014}
+  m_SizeDelta: {x: -800.2493, y: -444.8475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234792580
 MonoBehaviour:

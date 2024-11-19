@@ -46,5 +46,10 @@ public class CountFuse : MonoBehaviour
     private void ActualizarContadorText()
     {
         contadorText.text = Completed ? "Volver al Panel Electrico" : $"Busca los fusibles dentro de la casa {contadorFuse}/{maxFuse}";
+        // Al cambiar de escena se pierde la referencia de a cual TextMeshProUGUI estamos enviando mensaje
+        // Esto es porque hay varios incluso en una misma escena.
+        //SOLUCIONADO!!! enviar contadorText.text a UIManager.
+        var text = contadorText.text;
+        UIManager.GetUIManager().SetTarea(text);
     }
 }
