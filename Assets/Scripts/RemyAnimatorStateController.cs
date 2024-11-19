@@ -185,10 +185,11 @@ public class RemyAnimatorStateController : MonoBehaviour
         }
         if (other.CompareTag("Player") && !Interaciono)
         {
+            Interaciono=true;
             var text = "Remy va a poner la mesa";
             UIManager.GetUIManager().SetTarea(text);
+            Debug.Log(text);
             isWaiting = false;
-            Interaciono=true;
             Invoke("Mensaje", 3.0f);
         }
     }   

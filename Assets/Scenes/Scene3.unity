@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017173978, g: 0.00000002660764, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017173914, g: 0.00000002660764, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1383,7 +1383,7 @@ PrefabInstance:
     - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}
       propertyPath: m_Intensity
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}
@@ -14538,6 +14538,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242780604613349000, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 314795416981977382, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14593,6 +14598,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tryHouseV1
       objectReference: {fileID: 0}
+    - target: {fileID: 1453181610506072053, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3752761302536610508, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14612,6 +14622,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807792180721902128, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4893218845298065865, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
@@ -14633,9 +14648,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 6462698883306969333, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7294541318122789297, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
       propertyPath: open
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814234695038250121, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8659325211231348168, guid: cdc5151ba8f23644dbaee9f8682ebb9c,

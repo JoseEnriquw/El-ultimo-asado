@@ -42,6 +42,11 @@ public class HealthKitCounter : MonoBehaviour
 
     private void ActualizarContadorText()
     {
-        contadorText.text= Completed ? "Volver con Judy":$"Completa el botiquin {contadorBotiquin}/{maxBotiquines}";    
+        contadorText.text= Completed ? "Volver con Judy":$"Completa el botiquin {contadorBotiquin}/{maxBotiquines}";
+        // Al cambiar de escena se pierde la referencia de a cual TextMeshProUGUI estamos enviando mensaje
+        // Esto es porque hay varios incluso en una misma escena.
+        //SOLUCIONADO!!! enviar contadorText.text a UIManager.
+        var text = contadorText.text;
+        UIManager.GetUIManager().SetTarea(text);
     }
 }
