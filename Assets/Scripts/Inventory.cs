@@ -1,3 +1,4 @@
+using Assets.Scripts.GameManager;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -44,16 +45,7 @@ public class Inventory : MonoBehaviour
 
     private void UpdateCursorState()
     {
-        if (inventoryEnabled)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        GameManager.GetGameManager().SetEnablePlayerInput(!inventoryEnabled);       
     }
     public void CloseInventory()
     {
