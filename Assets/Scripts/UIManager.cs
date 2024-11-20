@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image NombreImg;
     [SerializeField] private Image Billetera;
     [SerializeField] private TextMeshProUGUI TareaTxt;
+    [SerializeField] private GameObject taskPanel;
 
     private void Awake()
     {
@@ -44,6 +45,16 @@ public class UIManager : MonoBehaviour
         if(current==null)
             return;
         current.TareaTxt.text = task;  
+    }
+
+    public void ShowTaskPanel()
+    {
+        if(!taskPanel.activeSelf) taskPanel.SetActive(true);
+    }   
+
+    public void HideTaskPanel()
+    {
+        if(taskPanel.activeSelf) taskPanel.SetActive(false);
     }
 
     public static UIManager GetUIManager()=>current;

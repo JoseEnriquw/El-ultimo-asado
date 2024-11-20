@@ -303,7 +303,7 @@ PrefabInstance:
     - target: {fileID: 1118465604442915405, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.9553223
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 1585920886768778609, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
@@ -15367,6 +15367,7 @@ MonoBehaviour:
   NombreImg: {fileID: 1932309010}
   Billetera: {fileID: 0}
   TareaTxt: {fileID: 313207419}
+  taskPanel: {fileID: 0}
 --- !u!114 &1964377104
 MonoBehaviour:
   m_ObjectHideFlags: 0

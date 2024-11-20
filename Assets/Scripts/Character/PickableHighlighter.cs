@@ -25,7 +25,7 @@ namespace Assets.Scripts.Character
                     || hitObject.CompareTag(Tags.Linterna)
                     || hitObject.CompareTag(Tags.PanelElectrico)
                     || hitObject.CompareTag(Tags.Car)
-                    || hitObject.CompareTag(Tags.Car)
+                    || hitObject.CompareTag(Tags.MedicalKit)
                     )
                 {
                     // Si es un nuevo objeto, actualiza el resaltado

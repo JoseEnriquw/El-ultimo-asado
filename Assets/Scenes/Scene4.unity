@@ -2249,6 +2249,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2714908204676701202, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2787107613876222188, guid: 49be92a6dd2e4a1469cf989dd07cd3ff,
         type: 3}
       propertyPath: m_Name
@@ -15610,6 +15615,7 @@ MonoBehaviour:
   NombreImg: {fileID: 650595553}
   Billetera: {fileID: 0}
   TareaTxt: {fileID: 0}
+  taskPanel: {fileID: 0}
 --- !u!114 &1981056818
 MonoBehaviour:
   m_ObjectHideFlags: 0

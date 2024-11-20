@@ -11,6 +11,8 @@ namespace Assets.Scripts.GameManager
         public Action<EnemyStatesEnum> OnChangeEnemyState;
         public Action<GameObject> OnPickUpObject;
         public Action OnPlayEnemyScream;
+        public Action<bool> OnChangePlayerInput;
+
         public static GameManager GetGameManager() => gameManager; 
 
         private void Awake()
@@ -24,14 +26,19 @@ namespace Assets.Scripts.GameManager
             gameManager = this;
             DontDestroyOnLoad(this);
         }
+
         public void NextScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+            var sceneNumber= SceneManager.GetActiveScene().buildIndex + 1;
+            
+            SceneManager.LoadScene(sceneNumber);
 
-        public void GoToScene(int scene)
-        {
-            SceneManager.LoadScene(scene);
+            switch (sceneNumber)
+            {
+                case 5:
+                    UIManager.GetUIManager().HideTaskPanel();
+                    break;
+            }
         }
 
         public int GetSceneNumber()
@@ -43,13 +50,22 @@ namespace Assets.Scripts.GameManager
         {
             OnChangeEnemyState?.Invoke(newState);
         }  
+
         public void PickUpObject(GameObject gameObject)
         {
             OnPickUpObject?.Invoke(gameObject);
         }    
+
         public void PlayEnemyScream()
         {
             OnPlayEnemyScream?.Invoke();
+        }
+
+        public void SetEnablePlayerInput(bool enable)
+        {
+            OnChangePlayerInput?.Invoke(enable);
+            if (enable) Cursor.lockState = CursorLockMode.Locked;
+            else Cursor.lockState = CursorLockMode.None;
         }
     }
 }
