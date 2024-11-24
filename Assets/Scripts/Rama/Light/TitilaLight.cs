@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class luz : MonoBehaviour
+public class TitilaLight : MonoBehaviour
 {
 
     public bool titila = false; //indica si la luz está actualmente parpadeando
