@@ -1,5 +1,6 @@
 using Assets.Scripts.GameManager;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject SlotHandler;
     public bool hasLinterna = false;
 
+    private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
+
     void Start()
     {
         allSlots = SlotHandler.transform.childCount;
@@ -22,26 +30,26 @@ public class Inventory : MonoBehaviour
             if (slot[i].GetComponent<Slot>().item == null)
                 slot[i].GetComponent<Slot>().empty = true;
         }
-    }
+    }   
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryEnabled = !inventoryEnabled;
-            UpdateCursorState();
-        }
-        if (inventoryEnabled)
-        {
-            inventory.SetActive(true);
-        }
-        else
-        {
-            inventory.SetActive(false);
-        }
+        playerInput.actions["Inventory"].performed += DoSetActive;
     }
+
+    private void OnDisable()
+    {
+        playerInput.actions["Inventory"].performed -= DoSetActive;
+    }
+    private void DoSetActive(InputAction.CallbackContext callbackContext)
+    {
+        
+        inventoryEnabled = !inventoryEnabled;
+        inventory.SetActive(inventoryEnabled);
+       
+        UpdateCursorState();
+    }
+  
 
     private void UpdateCursorState()
     {
@@ -60,20 +68,21 @@ public class Inventory : MonoBehaviour
         if (iteminventory.equipped) return;
         for (int i = 0; i < allSlots; i++)
         {
-            if (slot[i].GetComponent<Slot>().empty)
+            var _slot = slot[i].GetComponent<Slot>();
+            if (_slot.empty)
             {
                 itemobjet.GetComponent<ItemInventory>().PickedUp = true;
-                slot[i].GetComponent<Slot>().item = itemobjet;
-                slot[i].GetComponent<Slot>().Id = iteminventory.Id;
-                slot[i].GetComponent<Slot>().Type = iteminventory.Type;
-                slot[i].GetComponent<Slot>().Description = iteminventory.Description;
-                slot[i].GetComponent<Slot>().Icon = iteminventory.Icon;
+                _slot.item = itemobjet;
+                _slot.Id = iteminventory.Id;
+                _slot.Type = iteminventory.Type;
+                _slot.Description = iteminventory.Description;
+                _slot.Icon = iteminventory.Icon;
 
                 itemobjet.transform.parent = slot[i].transform;
                 itemobjet.SetActive(false);
-                slot[i].GetComponent<Slot>().UpdateSlot();
+                _slot.UpdateSlot();
 
-                slot[i].GetComponent<Slot>().empty = false;
+                _slot.empty = false;
 
 
 
@@ -88,17 +97,17 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < allSlots; i++)
         {
-            //Slot slot = slot[i].GetComponent<Slot>();
-            if (!slot[i].GetComponent<Slot>().empty && slot[i].GetComponent<Slot>().Id == itemInventory.Id)
+            var _slot = slot[i].GetComponent<Slot>();
+            if (!_slot.empty && _slot.Id == itemInventory.Id)
             {
-                slot[i].GetComponent<Slot>().item = null;
-                slot[i].GetComponent<Slot>().Id = 0;
-                slot[i].GetComponent<Slot>().Type = "";
-                slot[i].GetComponent<Slot>().Description = "";
-                slot[i].GetComponent<Slot>().Icon = null;
-                slot[i].GetComponent<Slot>().empty = true;
+                _slot.item = null;
+                _slot.Id = 0;
+                _slot.Type = "";
+                _slot.Description = "";
+                _slot.Icon = null;
+                _slot.empty = true;
 
-                slot[i].GetComponent<Slot>().Removeicon();
+                _slot.Removeicon();
                 break;
             }
         }
