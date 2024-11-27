@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Enums;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Character
 {
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Character
         private float gravity = -9.81f;
         private float verticalVelocity;        
         private float xRotation = 0f;
+        private bool inputEnabled;
 
         private void Awake()
         {
@@ -34,8 +36,10 @@ namespace Assets.Scripts.Character
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
             GameManager.GameManager.GetGameManager().OnPickUpObject += PickUpObject;
+            GameManager.GameManager.GetGameManager().OnChangePlayerInput += SetEnablePlayerInput;
+            UIManager.GetUIManager().ShowTaskPanel();
+            inputEnabled = true;
         }
 
         private void Update()
@@ -47,6 +51,7 @@ namespace Assets.Scripts.Character
 
         private void HandleMouseLook()
         {
+            if(!inputEnabled) return;
             // Obtener la entrada del mouse
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -63,6 +68,7 @@ namespace Assets.Scripts.Character
 
         private void HandleMovement()
         {
+            if(!inputEnabled) return;
             // Entrada del usuario
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
@@ -102,12 +108,18 @@ namespace Assets.Scripts.Character
 
         private void HandleAnimations()
         {
+            if(!inputEnabled) return;
             // Calcular la velocidad horizontal
             Vector3 horizontalVelocity = new(characterController.velocity.x, 0, characterController.velocity.z);
             float speedPercent = horizontalVelocity.magnitude / runSpeed;
 
             // Actualizar el parámetro 'Speed' en el Animator
             animator.SetFloat("Speed", speedPercent, 0.1f, Time.deltaTime);
+        }
+
+        public void SetEnablePlayerInput(bool enable)
+        {
+            inputEnabled = enable;
         }
 
         private void PickUpObject(GameObject gameObject)
