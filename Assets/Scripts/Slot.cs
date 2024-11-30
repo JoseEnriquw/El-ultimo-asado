@@ -13,7 +13,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Sprite Icon;
     public bool empty;
     public Transform slotIconGameObject;
-
     private PickObject pickObject;
     private Inventory inventory;
 

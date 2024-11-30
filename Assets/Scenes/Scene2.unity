@@ -525,6 +525,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasInventario (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5771611497306780238, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771611497306780238, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7157713197116238592, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10819,6 +10829,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7344551969078167, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 69885752383251408, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: _UI
@@ -10834,6 +10848,11 @@ PrefabInstance:
       propertyPath: SlotHandler
       value: 
       objectReference: {fileID: 25213939}
+    - target: {fileID: 1825579879131222246, guid: 111690d73c9728741bd54e3ad6278183,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2087120606438529299, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_Enabled
