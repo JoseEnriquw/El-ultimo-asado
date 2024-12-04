@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IPointerClickHandler
+public class Slot : MonoBehaviour/*, IPointerClickHandler*/
 {
     public GameObject item;
     public int Id;
@@ -42,13 +42,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(/*PointerEventData eventData*/)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        /*if (eventData.button == PointerEventData.InputButton.Left)
         {
+        }*/
             pickObject.EquipItem(item);
             inventory.CloseInventory();
-        }
     }
 
 

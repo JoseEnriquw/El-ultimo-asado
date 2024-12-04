@@ -1,5 +1,8 @@
 using Assets.Scripts.GameManager;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
@@ -8,6 +11,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject inventory;
     public GameObject Linterna;
     private int allSlots;
+    Slot _randomSlot;
     private int enabledSlots;
     [SerializeField] private GameObject[] slot;
     [SerializeField] private GameObject SlotHandler;
@@ -27,6 +31,7 @@ public class Inventory : MonoBehaviour
                 slot[i].GetComponent<Slot>().empty = true;
         }
         inventory.SetActive(true);
+        _randomSlot = FindAnyObjectByType<Slot>();
     }
 
     void Start()
@@ -38,12 +43,16 @@ public class Inventory : MonoBehaviour
     private void OnEnable()
     {
         playerInput.actions["Inventory"].performed += DoSetActive;
+        playerInput.actions["SlotInteraction"].performed += HandleSlotInteraction;
     }
 
     private void OnDisable()
     {
         playerInput.actions["Inventory"].performed -= DoSetActive;
+        playerInput.actions["SlotInteraction"].performed -= HandleSlotInteraction;
     }
+
+
     private void DoSetActive(InputAction.CallbackContext callbackContext)
     {
         
@@ -116,6 +125,46 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+    private void HandleSlotInteraction(InputAction.CallbackContext ctx)
+    {
+        try
+        {
+            Debug.Log("Clic detectado en SlotInteraction");
+            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+            {
+                position = Mouse.current.position.ReadValue() // Posición del cursor
+            };
 
+            // Lista para almacenar los resultados del Raycast
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            // Procesar los resultados del Raycast
+            foreach (RaycastResult result in results)
+            {
+                Debug.Log($"Clic en: {result.gameObject.name}");
+
+                // Comprobar si el objeto clicado es un Slot
+                Slot randomSlot = result.gameObject.GetComponent<Slot>();
+                if (randomSlot != null)
+                {
+                    Debug.Log($"Clic detectado en Slot: {randomSlot.name}, Item: {randomSlot.item?.name}");
+                    randomSlot.OnPointerClick(); // Ejecutar lógica del Slot
+                    break; // Salir después de procesar un clic válido
+                }
+            }
+
+            if (results.Count == 0)
+            {
+                Debug.LogWarning("No se detectó ningún objeto bajo el cursor.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error al ejecutar SlotInteraction: {ex.Message}\n{ex.StackTrace}");
+        }
+
+    }
+        
 
 }
