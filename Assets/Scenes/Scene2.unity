@@ -430,6 +430,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2952986554276995729, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -520,10 +535,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -55
       objectReference: {fileID: 0}
+    - target: {fileID: 4096097058460076964, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5284230293124818131, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_Name
       value: CanvasInventario (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284230293124818131, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5771611497306780238, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}

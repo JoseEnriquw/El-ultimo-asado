@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private PickObject pickObject;
     private Inventory inventory;
 
-    private void Start()
+    private void Awake()
     {
         slotIconGameObject = transform.GetChild(0);
         pickObject = FindObjectOfType<PickObject>();

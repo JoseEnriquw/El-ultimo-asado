@@ -18,10 +18,6 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-    }
-
-    void Start()
-    {
         allSlots = SlotHandler.transform.childCount;
         slot = new GameObject[allSlots];
         for (int i = 0; i < allSlots; i++)
@@ -30,6 +26,13 @@ public class Inventory : MonoBehaviour
             if (slot[i].GetComponent<Slot>().item == null)
                 slot[i].GetComponent<Slot>().empty = true;
         }
+        inventory.SetActive(true);
+    }
+
+    void Start()
+    {
+        inventory.SetActive(false);
+
     }   
 
     private void OnEnable()
@@ -53,7 +56,8 @@ public class Inventory : MonoBehaviour
 
     private void UpdateCursorState()
     {
-        GameManager.GetGameManager().SetEnablePlayerInput(!inventoryEnabled);       
+        GameManager.GetGameManager().SetEnablePlayerInput(!inventoryEnabled);
+        
     }
     public void CloseInventory()
     {
