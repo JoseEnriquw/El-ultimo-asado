@@ -430,6 +430,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734235701631489126, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2952986554276995729, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -520,11 +535,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -55
       objectReference: {fileID: 0}
+    - target: {fileID: 4096097058460076964, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5284230293124818131, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_Name
       value: CanvasInventario (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5284230293124818131, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771611497306780238, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771611497306780238, guid: 8a322bac07e662e47911973b8fa59491,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7157713197116238592, guid: 8a322bac07e662e47911973b8fa59491,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10834,6 +10869,11 @@ PrefabInstance:
       propertyPath: SlotHandler
       value: 
       objectReference: {fileID: 25213939}
+    - target: {fileID: 1825579879131222246, guid: 111690d73c9728741bd54e3ad6278183,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2087120606438529299, guid: 111690d73c9728741bd54e3ad6278183,
         type: 3}
       propertyPath: m_Enabled
@@ -15314,6 +15354,7 @@ GameObject:
   - component: {fileID: 1933463999}
   - component: {fileID: 1933463998}
   - component: {fileID: 1933463997}
+  - component: {fileID: 1933464000}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -15371,6 +15412,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933464000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933463996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 645e7d14fadca6f45ae2afe3a6cbc466,
+    type: 3}
+  m_PointAction: {fileID: 566845119361205583, guid: 645e7d14fadca6f45ae2afe3a6cbc466,
+    type: 3}
+  m_MoveAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 566845119361205583, guid: 645e7d14fadca6f45ae2afe3a6cbc466,
+    type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &1964377102
 GameObject:
   m_ObjectHideFlags: 0
