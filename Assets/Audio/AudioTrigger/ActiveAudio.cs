@@ -14,7 +14,7 @@ public class ActivarSonidoTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other) //Si entro en el trigger
     {
         // Comprueba si el objeto que entra en el trigger es el "Player" o está en el layer especificado
-        if (other.CompareTag("Player") || ((1 << other.gameObject.layer) & layerToDetect) != 0)
+        if (other.CompareTag("Player") /*|| ((1 << other.gameObject.layer) & layerToDetect) != 0*/)
         {
             // Reproduce el sonido si el audio no está ya sonando
             if (audioSource!=null && !audioSource.isPlaying)

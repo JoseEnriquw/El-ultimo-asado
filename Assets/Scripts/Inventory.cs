@@ -128,22 +128,24 @@ public class Inventory : MonoBehaviour
     }
     private void HandleSlotInteraction(InputAction.CallbackContext ctx)
     {
-        try
+        if (inventoryEnabled)
         {
-            Debug.Log("Clic detectado en SlotInteraction");
-            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+            try
             {
-                position = Mouse.current.position.ReadValue() // Posición del cursor
-            };
+                Debug.Log("Clic detectado en SlotInteraction");
+                PointerEventData pointerData = new PointerEventData(EventSystem.current)
+                {
+                    position = Mouse.current.position.ReadValue() // Posición del cursor
+                };
 
-            // Lista para almacenar los resultados del Raycast
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
+                // Lista para almacenar los resultados del Raycast
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointerData, results);
 
-            // Procesar los resultados del Raycast
-            foreach (RaycastResult result in results)
-            {
-                Debug.Log($"Clic en: {result.gameObject.name}");
+                // Procesar los resultados del Raycast
+                foreach (RaycastResult result in results)
+                {
+                    Debug.Log($"Clic en: {result.gameObject.name}");
 
                 // Comprobar si el objeto clicado es un Slot
                 Slot randomSlot = result.gameObject.GetComponent<Slot>();
@@ -156,14 +158,16 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            if (results.Count == 0)
-            {
-                Debug.LogWarning("No se detectó ningún objeto bajo el cursor.");
+                if (results.Count == 0)
+                {
+                    Debug.LogWarning("No se detectó ningún objeto bajo el cursor.");
+                }
             }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"Error al ejecutar SlotInteraction: {ex.Message}\n{ex.StackTrace}");
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error al ejecutar SlotInteraction: {ex.Message}\n{ex.StackTrace}");
+            }
+
         }
 
     }

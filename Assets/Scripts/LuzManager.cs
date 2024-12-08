@@ -5,7 +5,7 @@ using UnityEngine;
 public class LuzManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _Luces;
-    public bool Luzcortada=false;
+    [SerializeField] private bool Luzcortada=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +32,10 @@ public class LuzManager : MonoBehaviour
             l.gameObject.SetActive(false);
         }
         Luzcortada = true;
+    }
+
+    public bool getEstadoLuz()
+    {
+        return this.Luzcortada;
     }
 }
