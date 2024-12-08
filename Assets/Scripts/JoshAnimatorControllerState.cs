@@ -10,9 +10,9 @@ public class JoshAnimatorControllerState : MonoBehaviour
     // la lista de wayPoints asignados desde el editor
     [SerializeField] private List<Transform> wayPoints = new List<Transform>();
 
-    public bool isMoving;
-    public bool isWaiting;
-    public int wayPointIndex;
+    [SerializeField] private bool isMoving;
+    [SerializeField] private bool isWaiting;
+    [SerializeField] private int wayPointIndex;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
@@ -184,7 +184,7 @@ public class JoshAnimatorControllerState : MonoBehaviour
             isDead = true;
             PlayScream();
         }
-        if (other.CompareTag("Player") && luzManager.Luzcortada)
+        if (other.CompareTag("Player") && luzManager.getEstadoLuz())
         {
             Text textComponent = this.GetComponent<Text>();
             var text = "El tablero esta fuera de la casa";
