@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0023086567, g: 0.0025026659, b: 0.002423708, a: 1}
+  m_IndirectSpecularColor: {r: 0.0023070085, g: 0.0025082012, b: 0.002422681, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   Type: usable
-  Description: 
+  Description: item1
   Icon: {fileID: 21300000, guid: 02614403adc12db40aa35c5b073171c7, type: 3}
   PickedUp: 0
   equipped: 0
@@ -5641,7 +5641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   Type: usable
-  Description: 
+  Description: item3
   Icon: {fileID: 21300000, guid: efe2a5528359f104195ad219c427f644, type: 3}
   PickedUp: 0
   equipped: 0
@@ -6716,7 +6716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   Type: usable
-  Description: 
+  Description: item4
   Icon: {fileID: 21300000, guid: c342fe718fb29d1459d35b5799eb64d2, type: 3}
   PickedUp: 0
   equipped: 0
@@ -10668,7 +10668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   Type: usable
-  Description: 
+  Description: item2
   Icon: {fileID: 21300000, guid: 4dd7a0c7ca596e34fafdfff4b2817b17, type: 3}
   PickedUp: 0
   equipped: 0
@@ -12164,7 +12164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10
   Type: usable
-  Description: 
+  Description: item5
   Icon: {fileID: 21300000, guid: b81c7c6a12a3f944ab62ad733c0ce53b, type: 3}
   PickedUp: 0
   equipped: 0
@@ -14589,6 +14589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125718067989791792, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3752761302536610508, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}

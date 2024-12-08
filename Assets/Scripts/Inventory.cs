@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -93,8 +94,8 @@ public class Inventory : MonoBehaviour
 
                 itemobjet.transform.parent = slot[i].transform;
                 itemobjet.SetActive(false);
-                _slot.UpdateSlot();
-
+                 _slot.UpdateSlot();
+               // _slot.GetComponent<Image>().sprite = iteminventory.Icon;
                 _slot.empty = false;
 
 
@@ -111,7 +112,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < allSlots; i++)
         {
             var _slot = slot[i].GetComponent<Slot>();
-            if (!_slot.empty && _slot.Id == itemInventory.Id)
+            if (!_slot.empty && _slot.Id == itemInventory.Id && _slot.Description== itemInventory.Description)
             {
                 _slot.item = null;
                 _slot.Id = 0;
@@ -119,8 +120,8 @@ public class Inventory : MonoBehaviour
                 _slot.Description = "";
                 _slot.Icon = null;
                 _slot.empty = true;
-
-                _slot.Removeicon();
+                _slot.GetComponent<Image>().sprite = null;
+                 _slot.Removeicon();
                 break;
             }
         }
@@ -149,7 +150,8 @@ public class Inventory : MonoBehaviour
                 if (randomSlot != null)
                 {
                     Debug.Log($"Clic detectado en Slot: {randomSlot.name}, Item: {randomSlot.item?.name}");
-                    randomSlot.OnPointerClick(); // Ejecutar lógica del Slot
+                    if(randomSlot.item != null)
+                        randomSlot.OnPointerClick(); // Ejecutar lógica del Slot
                     break; // Salir después de procesar un clic válido
                 }
             }
