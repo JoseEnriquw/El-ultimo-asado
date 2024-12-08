@@ -153,6 +153,22 @@ public class PickObject : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject otherObject = other.gameObject;
+        string tag = otherObject.tag;
+        InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
+        switch (tag) {
+            case "MedicalKit":
+                if(Busquedabotiquin && interactable != null && interactable.interactionID == 10 && MedicalKitCompleted)
+                {
+                    var text = $"Ayuda a jody";
+                    UIManager.GetUIManager().SetTarea(text);
+                }               
+                break;
+        }
+    }
+
     private void HandleElectricPanel(GameObject otherObject)
     {
         InteractableObject interactable = otherObject.GetComponent<InteractableObject>();
