@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IPointerClickHandler
+public class Slot : MonoBehaviour/*, IPointerClickHandler*/
 {
     public GameObject item;
     public int Id;
@@ -13,11 +13,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Sprite Icon;
     public bool empty;
     public Transform slotIconGameObject;
-
     private PickObject pickObject;
     private Inventory inventory;
 
-    private void Start()
+    private void Awake()
     {
         slotIconGameObject = transform.GetChild(0);
         pickObject = FindObjectOfType<PickObject>();
@@ -43,13 +42,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(/*PointerEventData eventData*/)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        /*if (eventData.button == PointerEventData.InputButton.Left)
         {
+        }*/
             pickObject.EquipItem(item);
             inventory.CloseInventory();
-        }
     }
 
 

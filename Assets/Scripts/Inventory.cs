@@ -1,4 +1,9 @@
+using Assets.Scripts.GameManager;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
@@ -6,13 +11,17 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject inventory;
     public GameObject Linterna;
     private int allSlots;
+    Slot _randomSlot;
     private int enabledSlots;
     [SerializeField] private GameObject[] slot;
     [SerializeField] private GameObject SlotHandler;
     public bool hasLinterna = false;
 
-    void Start()
+    private PlayerInput playerInput;
+
+    private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         allSlots = SlotHandler.transform.childCount;
         slot = new GameObject[allSlots];
         for (int i = 0; i < allSlots; i++)
@@ -21,39 +30,43 @@ public class Inventory : MonoBehaviour
             if (slot[i].GetComponent<Slot>().item == null)
                 slot[i].GetComponent<Slot>().empty = true;
         }
+        inventory.SetActive(true);
+        _randomSlot = FindAnyObjectByType<Slot>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
+        inventory.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryEnabled = !inventoryEnabled;
-            UpdateCursorState();
-        }
-        if (inventoryEnabled)
-        {
-            inventory.SetActive(true);
-        }
-        else
-        {
-            inventory.SetActive(false);
-        }
+    }   
+
+    private void OnEnable()
+    {
+        playerInput.actions["Inventory"].performed += DoSetActive;
+        playerInput.actions["SlotInteraction"].performed += HandleSlotInteraction;
     }
+
+    private void OnDisable()
+    {
+        playerInput.actions["Inventory"].performed -= DoSetActive;
+        playerInput.actions["SlotInteraction"].performed -= HandleSlotInteraction;
+    }
+
+
+    private void DoSetActive(InputAction.CallbackContext callbackContext)
+    {
+        
+        inventoryEnabled = !inventoryEnabled;
+        inventory.SetActive(inventoryEnabled);
+       
+        UpdateCursorState();
+    }
+  
 
     private void UpdateCursorState()
     {
-        if (inventoryEnabled)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        GameManager.GetGameManager().SetEnablePlayerInput(!inventoryEnabled);
+        
     }
     public void CloseInventory()
     {
@@ -68,20 +81,21 @@ public class Inventory : MonoBehaviour
         if (iteminventory.equipped) return;
         for (int i = 0; i < allSlots; i++)
         {
-            if (slot[i].GetComponent<Slot>().empty)
+            var _slot = slot[i].GetComponent<Slot>();
+            if (_slot.empty)
             {
                 itemobjet.GetComponent<ItemInventory>().PickedUp = true;
-                slot[i].GetComponent<Slot>().item = itemobjet;
-                slot[i].GetComponent<Slot>().Id = iteminventory.Id;
-                slot[i].GetComponent<Slot>().Type = iteminventory.Type;
-                slot[i].GetComponent<Slot>().Description = iteminventory.Description;
-                slot[i].GetComponent<Slot>().Icon = iteminventory.Icon;
+                _slot.item = itemobjet;
+                _slot.Id = iteminventory.Id;
+                _slot.Type = iteminventory.Type;
+                _slot.Description = iteminventory.Description;
+                _slot.Icon = iteminventory.Icon;
 
                 itemobjet.transform.parent = slot[i].transform;
                 itemobjet.SetActive(false);
-                slot[i].GetComponent<Slot>().UpdateSlot();
+                _slot.UpdateSlot();
 
-                slot[i].GetComponent<Slot>().empty = false;
+                _slot.empty = false;
 
 
 
@@ -96,21 +110,65 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < allSlots; i++)
         {
-            //Slot slot = slot[i].GetComponent<Slot>();
-            if (!slot[i].GetComponent<Slot>().empty && slot[i].GetComponent<Slot>().Id == itemInventory.Id)
+            var _slot = slot[i].GetComponent<Slot>();
+            if (!_slot.empty && _slot.Id == itemInventory.Id)
             {
-                slot[i].GetComponent<Slot>().item = null;
-                slot[i].GetComponent<Slot>().Id = 0;
-                slot[i].GetComponent<Slot>().Type = "";
-                slot[i].GetComponent<Slot>().Description = "";
-                slot[i].GetComponent<Slot>().Icon = null;
-                slot[i].GetComponent<Slot>().empty = true;
+                _slot.item = null;
+                _slot.Id = 0;
+                _slot.Type = "";
+                _slot.Description = "";
+                _slot.Icon = null;
+                _slot.empty = true;
 
-                slot[i].GetComponent<Slot>().Removeicon();
+                _slot.Removeicon();
                 break;
             }
         }
     }
+    private void HandleSlotInteraction(InputAction.CallbackContext ctx)
+    {
+        if (inventoryEnabled)
+        {
+            try
+            {
+                Debug.Log("Clic detectado en SlotInteraction");
+                PointerEventData pointerData = new PointerEventData(EventSystem.current)
+                {
+                    position = Mouse.current.position.ReadValue() // Posición del cursor
+                };
 
+                // Lista para almacenar los resultados del Raycast
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointerData, results);
+
+                // Procesar los resultados del Raycast
+                foreach (RaycastResult result in results)
+                {
+                    Debug.Log($"Clic en: {result.gameObject.name}");
+
+                    // Comprobar si el objeto clicado es un Slot
+                    Slot randomSlot = result.gameObject.GetComponent<Slot>();
+                    if (randomSlot != null)
+                    {
+                        Debug.Log($"Clic detectado en Slot: {randomSlot.name}, Item: {randomSlot.item?.name}");
+                        randomSlot.OnPointerClick(); // Ejecutar lógica del Slot
+                        break; // Salir después de procesar un clic válido
+                    }
+                }
+
+                if (results.Count == 0)
+                {
+                    Debug.LogWarning("No se detectó ningún objeto bajo el cursor.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error al ejecutar SlotInteraction: {ex.Message}\n{ex.StackTrace}");
+            }
+
+        }
+
+    }
+        
 
 }

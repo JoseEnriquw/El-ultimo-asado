@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+using Assets.Scripts.GameManager;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image NombreImg;
     [SerializeField] private Image Billetera;
     [SerializeField] private TextMeshProUGUI TareaTxt;
+    [SerializeField] private GameObject taskPanel;
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private Image backGroundLoadingImage;
+    [Header("LoadingSprites")]
+    [SerializeField] private List<Sprite> loadingSprites;
 
     private void Awake()
     {
@@ -20,10 +27,6 @@ public class UIManager : MonoBehaviour
         }
         current = this;
         DontDestroyOnLoad(gameObject);
-    }
-    private void Start()
-    {
-        
     }
 
     public void UpdateNombre(string name)
@@ -46,5 +49,34 @@ public class UIManager : MonoBehaviour
         current.TareaTxt.text = task;  
     }
 
+    public void ShowTaskPanel()
+    {
+        if(!taskPanel.activeSelf) taskPanel.SetActive(true);
+    }   
+
+    public void HideTaskPanel()
+    {
+        if(taskPanel.activeSelf) taskPanel.SetActive(false);
+    } 
+
+    public void ShowLoadingPanel()
+    {
+        if(!loadingPanel.activeSelf) loadingPanel.SetActive(true);
+    }   
+
+    public void HideLoadingPanel()
+    {
+        if(loadingPanel.activeSelf) loadingPanel.SetActive(false);
+    }
+
     public static UIManager GetUIManager()=>current;
+
+    public void ChangeLoadingBackGround(int currentScene)
+    {
+        if(currentScene> 0 && currentScene<=3)
+        { 
+           backGroundLoadingImage.sprite = loadingSprites[currentScene-1];
+           ShowLoadingPanel();
+        }
+    }
 }
