@@ -1,4 +1,3 @@
-using Assets.Scripts.GameManager;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         loadingPanel.SetActive(true);
-        StartCoroutine(EjecutarConDelay(5f,() => { GameManager.GetGameManager().NextScene(); }));
+        StartCoroutine(EjecutarConDelay(3f,() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); }));
     }
 
     IEnumerator EjecutarConDelay(float seconds, Action action)
