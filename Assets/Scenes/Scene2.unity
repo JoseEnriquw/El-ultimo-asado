@@ -3471,6 +3471,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1062918649}
+    - targetCorrespondingSourceObject: {fileID: 6192534144941231083, guid: 8381dd6932f724443a807f42bc85dc6c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8381dd6932f724443a807f42bc85dc6c, type: 3}
 --- !u!1 &349058634
 GameObject:
@@ -16840,6 +16844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708720806934278971, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4807792180721902128, guid: cdc5151ba8f23644dbaee9f8682ebb9c,
         type: 3}
