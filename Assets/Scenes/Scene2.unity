@@ -15444,8 +15444,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 645e7d14fadca6f45ae2afe3a6cbc466,
     type: 3}
-  m_PointAction: {fileID: 566845119361205583, guid: 645e7d14fadca6f45ae2afe3a6cbc466,
-    type: 3}
+  m_PointAction: {fileID: 0}
   m_MoveAction: {fileID: 0}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
@@ -15496,6 +15495,9 @@ MonoBehaviour:
   Billetera: {fileID: 0}
   TareaTxt: {fileID: 313207419}
   taskPanel: {fileID: 0}
+  loadingPanel: {fileID: 0}
+  backGroundLoadingImage: {fileID: 0}
+  loadingSprites: []
 --- !u!114 &1964377104
 MonoBehaviour:
   m_ObjectHideFlags: 0
