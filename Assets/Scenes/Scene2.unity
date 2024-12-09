@@ -10948,6 +10948,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8812433863496502028, guid: 111690d73c9728741bd54e3ad6278183,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9100193135708414085, guid: 111690d73c9728741bd54e3ad6278183, type: 3}
     m_RemovedGameObjects:
@@ -16019,21 +16024,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MorningSun
       objectReference: {fileID: 0}
-    - target: {fileID: 1901108134305341599, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901108134305341599, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190030457106887330, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2190030457106887330, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16083,56 +16073,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -138.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.3207547
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.21750127
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.19517621
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_ColorTemperature
-      value: 8901
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_UseColorTemperature
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 24.056442
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

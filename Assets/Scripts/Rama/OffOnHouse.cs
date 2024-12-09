@@ -1,3 +1,4 @@
+using Assets.Scripts.Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class ToggleLightsByLayer : MonoBehaviour
 {
     public string lightLayerName = "Light"; // Nombre del layer que contiene las luces
     private bool lightsOn = true; // Estado de las luces, true indica que están encendidas
+    private PlayerCharacter _character;
+    
+    
 
     void Update()
     {
@@ -14,6 +18,8 @@ public class ToggleLightsByLayer : MonoBehaviour
         {
             ToggleLights();
         }
+        //attempting to rotate lantern
+        
     }
 
     void ToggleLights()

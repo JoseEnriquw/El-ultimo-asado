@@ -1601,6 +1601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titila: 1
   timeDelay: 0
+  _light: {fileID: 0}
 --- !u!1 &1872889503549169904
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,6 +3079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titila: 0
   timeDelay: 0
+  _light: {fileID: 0}
 --- !u!1 &3134060865619292885
 GameObject:
   m_ObjectHideFlags: 0
@@ -17435,12 +17437,12 @@ PrefabInstance:
     - target: {fileID: 3203857797647914183, guid: 56b52d7adbc99d144845171ad4e72ca1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1093.1
+      value: 1219
       objectReference: {fileID: 0}
     - target: {fileID: 3203857797647914183, guid: 56b52d7adbc99d144845171ad4e72ca1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3203857797647914183, guid: 56b52d7adbc99d144845171ad4e72ca1,
         type: 3}
