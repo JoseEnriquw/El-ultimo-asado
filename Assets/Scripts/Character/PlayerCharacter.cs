@@ -23,6 +23,7 @@ namespace Assets.Scripts.Character
         private float verticalVelocity;        
         private float xRotation = 0f;
         private bool inputEnabled;
+        private float lanternRotation;
 
         private void Awake()
         {
@@ -62,6 +63,7 @@ namespace Assets.Scripts.Character
             // Rotar la cámara en el eje X (vertical)
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 75f);
+            lanternRotation = xRotation;
 
            firstPersonCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
@@ -163,6 +165,11 @@ namespace Assets.Scripts.Character
                 Cursor.visible = true;
                 GameManager.GameManager.GetGameManager().NextScene();
             }            
+        }
+
+        public Quaternion getRotationToLantern()
+        {
+            return firstPersonCamera.transform.rotation;
         }
 
     }
